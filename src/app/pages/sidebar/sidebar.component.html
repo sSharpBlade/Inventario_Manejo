@@ -2,21 +2,8 @@
 
 
 <div class="menu-collapsed" id="sidemenu">
+    
     <div id="titulo"> INVENTARIO</div>
-    <div id="header">
-        
-        <div id="title">
-            <span>AB MODEL</span>
-            
-        </div>
-        <!-- FILEPATH: /D:/Capeta de Oscar/4rto Semestre/Manejo y Administracion de SW/ProyectoInventario/Inventario_Manejo/src/app/pages/sidebar/sidebar.component.html -->
-        <!-- This    represents a menu button with three horizontal lines, commonly known as a hamburger icon. -->
-        <!--<div id="menu-btn">
-            <div class="btn-hamburger"></div>
-            <div class="btn-hamburger"></div>
-            <div class="btn-hamburger"></div>
-        </div>-->
-    </div>
 
     <div id="profile">
         <div id="photo">
@@ -28,6 +15,7 @@
     </div>
 
     <div id="menu-items">
+        <div class="item separator"></div>
         <div class="item separator"></div>
 
             <div class="item">
@@ -42,8 +30,9 @@
             </div>
 
             <div class="item separator"></div>
+            <div class="item separator"></div>
             <div class="item">
-                <a [routerLink]="['#']">
+                <a [routerLink]="['#x']">
                     <div class="icon">
                         <i class="bi bi-house-add" style="font-size: 1.5rem;"></i>
                     </div>
@@ -53,6 +42,7 @@
                 </a>
             </div>
 
+            <div class="item separator"></div>
             <div class="item separator"></div>
             <div class="item">
                 <a [routerLink]="['#']">
@@ -67,9 +57,11 @@
 
 
         <div class="item separator"></div>
+        <div class="item separator"></div>
+        <div class="item separator"></div>
         <div class="item">
             <a id="close" [routerLink]="['#']" onclick="">
-                <div class="icon">
+                <div class="icon" style="position:relative;">
                     <i class="bi bi-box-arrow-left" style="font-size: 1.5rem;"></i>
                 </div>
                 <div class="title">
