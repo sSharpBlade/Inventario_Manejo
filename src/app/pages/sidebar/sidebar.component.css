@@ -18,7 +18,7 @@ body {
 }
 
 #sidemenu {
-    background-color: var(--bgcolor);
+    background-color: rgb(52, 52, 52);
     color: white;
     position: fixed;
     height: 100%;
@@ -166,7 +166,8 @@ body {
 }
 
 .menu-collapsed {
-    width: var(--width-collapsed);
+    width: var(--width);
+    /*width: var(--width-collapsed);*/
 }
 
 .menu-collapsed #header #title {
