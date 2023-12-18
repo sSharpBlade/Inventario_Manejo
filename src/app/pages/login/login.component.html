@@ -1,1 +1,81 @@
-<p>login works!</p>
+
+<body>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <div class="fondo"></div>
+    <div class="container">
+        <div class="contenido">
+            <h2 class="logo">AB MODEL</h2>
+            <div class="texto">
+                <h2>Hola</h2>
+                <p>Que hace</p>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="#"><i class='bx bxl-tiktok'></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="login">
+            <div class="formulario iniciar">
+                <form action="#" method="post">
+                    <h2>INICIAR SESIÓN</h2>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-envelope'></i></span>
+                        <input type="email" name="correo" required>
+                        <label>correo electrónico</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-key'></i></span>
+                        <input type="password" name="pass" required>
+                        <label>contraseña</label>
+                    </div>
+
+                    <div class="olvido">
+                        <a href="#">¿Olvidaste tus datos?</a>
+                    </div>
+
+                    <button type="submit" class="btn">Ingresar</button>
+
+                    <div class="registrar">
+                        <p>¿No tienes cuenta? <a href="#" class="registrar-enlace">Regístrate</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="formulario registrar">
+                <form action="#" method="post">
+                    <h2>REGISTRARSE</h2>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-user'></i></span>
+                        <input type="text" required name="usuario">
+                        <label>nombre de usuario</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-envelope'></i></span>
+                        <input type="email" required name="correo">
+                        <label>correo electrónico</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-key'></i></span>
+                        <input type="password" required name="pass">
+                        <label>contraseña</label>
+                    </div>
+
+                    <div class="olvido">
+                        <label>
+                            <input type="checkbox" required> Acepta los <a href="#">términos y condiciones</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn">Registrar</button>
+
+                    <div class="registrar">
+                        <p>¿Ya tienes una cuenta? <a href="#" class="iniciar-enlace">Iniciar sesión</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="login.component.js"></script> 
+</body>
