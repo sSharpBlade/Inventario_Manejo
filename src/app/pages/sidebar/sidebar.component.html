@@ -2,15 +2,20 @@
 
 
 <div class="menu-collapsed" id="sidemenu">
+    <div id="titulo"> INVENTARIO</div>
     <div id="header">
+        
         <div id="title">
             <span>AB MODEL</span>
+            
         </div>
-        <div id="menu-btn">
+        <!-- FILEPATH: /D:/Capeta de Oscar/4rto Semestre/Manejo y Administracion de SW/ProyectoInventario/Inventario_Manejo/src/app/pages/sidebar/sidebar.component.html -->
+        <!-- This    represents a menu button with three horizontal lines, commonly known as a hamburger icon. -->
+        <!--<div id="menu-btn">
             <div class="btn-hamburger"></div>
             <div class="btn-hamburger"></div>
             <div class="btn-hamburger"></div>
-        </div>
+        </div>-->
     </div>
 
     <div id="profile">
@@ -26,36 +31,36 @@
         <div class="item separator"></div>
 
             <div class="item">
-                <a href="./formulario.php">
+                <a [routerLink]="['#']">
                     <div class="icon">
-                        <i class="bi bi-textarea-resize" style="font-size: 1.5rem;"></i>
+                        <i class="bi bi-archive" style="font-size: 1.5rem;"></i>
                     </div>
                     <div class="title">
-                        <span>FORMULARIO</span>
+                        <span>CARRERAS</span>
                     </div>
                 </a>
             </div>
 
             <div class="item separator"></div>
             <div class="item">
-                <a href="">
+                <a [routerLink]="['#']">
                     <div class="icon">
-                        <i class="bi bi-clock-history" style="font-size: 1.5rem;"></i>
+                        <i class="bi bi-house-add" style="font-size: 1.5rem;"></i>
                     </div>
                     <div class="title">
-                        <span>HISTORIAL</span>
+                        <span>LABORATORIOS</span>
                     </div>
                 </a>
             </div>
 
             <div class="item separator"></div>
             <div class="item">
-                <a href="">
+                <a [routerLink]="['#']">
                     <div class="icon">
-                        <i class="bi bi-ui-checks" style="font-size: 1.5rem;"></i>
+                        <i class="bi bi-pc-display" style="font-size: 1.5rem;"></i>
                     </div>
                     <div class="title">
-                        <span>PETICIONES</span>
+                        <span>BIENES</span>
                     </div>
                 </a>
             </div>
@@ -63,7 +68,7 @@
 
         <div class="item separator"></div>
         <div class="item">
-            <a id="close" href="#" onclick="salida('closeSession')">
+            <a id="close" [routerLink]="['#']" onclick="">
                 <div class="icon">
                     <i class="bi bi-box-arrow-left" style="font-size: 1.5rem;"></i>
                 </div>
@@ -87,18 +92,5 @@ document.addEventListener('DOMContentLoaded', function() {
         menu.classList.toggle("menu-collapsed");
         document.querySelector('body').classList.toggle('body-expanded');
     });
-
-    function salida(valor) {
-        $.ajax({
-            url: "./consultas_sidemenu.php",
-            type: "POST",
-            data: {
-                funcion: valor
-            },
-            error: function(error) {
-                console.error("Error al ejecutar la función PHP:", error);
-            }
-        });
-    }
 });
 </script>
