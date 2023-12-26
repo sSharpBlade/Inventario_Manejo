@@ -8,11 +8,13 @@ import { MostrarLabComponent } from './laboratorios/mostrar-lab/mostrar-lab.comp
 import { AddLabComponent } from './laboratorios/add-lab/add-lab.component';
 import { DeleteLabComponent } from './laboratorios/delete-lab/delete-lab.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { CarrerasComponent } from './carreras/carreras.component';
+import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    LaboratorioComponent, MostrarLabComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, 
+    LaboratorioComponent, MostrarLabComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, 
   ],
   imports: [
     BrowserModule,
