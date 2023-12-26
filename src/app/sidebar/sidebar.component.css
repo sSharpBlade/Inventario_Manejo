@@ -1,0 +1,13 @@
+.navbar {
+    background-color: aqua;
+      color: rgb(0, 0, 0);
+    }
+    
+    
+    .navbar form {
+      margin-right: 20px; 
+    }
+    
+    .navbar-brand:hover {
+      color: rgb(121, 214, 161); 
+    }
