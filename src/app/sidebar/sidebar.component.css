@@ -1,7 +1,11 @@
 
 
 .navbar {
-      background-color: rgb(177, 175, 175);
+      background-color: rgb(39, 39, 39);
+      color: rgb(255, 255, 255);
+      font-family: 'Rubik Doodle Shadow', sans-serif;
+    }
+    .navbar-brand {
       color: rgb(255, 255, 255);
       font-family: 'Rubik Doodle Shadow', sans-serif;
     }
@@ -12,5 +16,5 @@
     }
     
     .navbar-brand:hover {
-      color: rgb(255, 255, 255); 
+      color: rgb(0, 183, 255); 
     }

@@ -1,0 +1,31 @@
+.container-principal {
+    background-image: url('../../assets/img/laboratorios_wallpaper.jpg'); 
+    background-size: cover;
+    padding: 225px;
+}
+.btn-A{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745; 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.card {
+    background-color: rgba(255, 255, 255, 0.7); /* Blanco con 70% de opacidad */
+}
+.btn-A:hover {
+    background-color: #218838;
+}
+.btn-E {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-E:hover {
+    background-color: #c82333;
+}

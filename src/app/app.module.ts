@@ -4,7 +4,6 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LaboratorioComponent } from './laboratorios/laboratorios.component';
-import { MostrarLabComponent } from './laboratorios/mostrar-lab/mostrar-lab.component';
 import { AddLabComponent } from './laboratorios/add-lab/add-lab.component';
 import { DeleteLabComponent } from './laboratorios/delete-lab/delete-lab.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -14,7 +13,7 @@ import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras
 @NgModule({
   declarations: [
     AppComponent, 
-    LaboratorioComponent, MostrarLabComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, 
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, 
   ],
   imports: [
     BrowserModule,
