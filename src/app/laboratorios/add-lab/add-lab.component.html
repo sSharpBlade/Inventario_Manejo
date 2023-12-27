@@ -1,15 +1,44 @@
 <div class="container-principal"> 
-    <div class="card text-center">
+    <div class="card text-center ">
         <div class="card-header">
-        Administrador  
+            Administrador  
         </div>
-        <div class="card-body">
-        <h5 class="card-title">INGRESA LOS DATOS PARA UN NUEVO LABORATORIO</h5>
-        <p class="card-text">Como administrador podras crear los laboratorios que se te soliciten</p>
-        <a href="./add-lab" class="btn-A btn">Añadir</a>
-        </div>
+        <form action="/procesar-formulario" method="post" class="p-3">
+            <div class="mb-3 row">
+                <label for="nombreLab" class="col-sm-4 col-form-label text-end">Elija una carrera</label>
+                <div class="col-sm-8">
+                    <select class="form-select short-input" id="carrera" name="carrera" required>
+                        <option value="ingenieria_software">Ingeniería en Software</option>
+                        <option value="ingenieria_ti">Ingeniería en TI</option>
+                        <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
+                       
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="nombreLab" class="col-sm-4 col-form-label text-end">Nombre del Laboratorio</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Nombre del Laboratorio">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="nombreLab" class="col-sm-4 col-form-label text-end">Ubicacion</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Ubicacion">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="nombreLab" class="col-sm-4 col-form-label text-end">Capacidad de mesas</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Capacidad de mesas">
+                </div>
+            </div>
+
+           
+            <button type="submit" class="btn">Añadir</button>
+        </form>
         <div class="card-footer text-body-secondary">
-        GrupoDinmita
-        </div>
+            GrupoDinmita
+        </div>    
     </div>
 </div>

@@ -1,9 +1,9 @@
 .container-principal {
     background-image: url('../../../assets/img/the-creativv-BUDn0s7QteI-unsplash.jpg'); 
     background-size: cover;
-    padding: 270px;
+    padding: 220px;
 }
-.btn-A{
+.btn{
     display: inline-block;
     padding: 10px 20px;
     background-color: #28a745; 
@@ -14,7 +14,7 @@
 .card {
     background-color: rgba(255, 255, 255, 0.7);
 }
-.btn-A:hover {
+.btn:hover {
     background-color: #218838;
 }
 .btn-E {
@@ -30,3 +30,10 @@
     background-color: #c82333;
 }
 
+.input-placeholder::placeholder {
+    color: #808080;
+    opacity: 0.7; 
+}
+.short-input {
+    width: 500px;
+  }
