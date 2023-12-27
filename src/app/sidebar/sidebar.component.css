@@ -1,22 +1,18 @@
-
-
 .navbar {
       background-color: rgb(39, 39, 39);
       color: rgb(255, 255, 255);
       font-family: 'Rubik Doodle Shadow', sans-serif;
     }
-    .navbar-brand {
+
+.navbar-brand {
       color: rgb(255, 255, 255);
       font-family: 'Rubik Doodle Shadow', sans-serif;
     }
-    
-    
-    .navbar form {
+
+.navbar form {
       margin-right: 20px; 
     }
     
-    .navbar-brand:hover {
+.navbar-brand:hover {
       color: rgb(0, 183, 255); 
     }
-  
-    
