@@ -42,3 +42,18 @@
     background-color: #c82333;
 }
 
+.btn2 {
+    text-align: left; border-color: transparent; background-color: transparent;
+    color: black;
+}
+.btn2:hover {
+    background-color: #b9b5b44b;
+    
+}  
+
+.ct2{
+    
+    color: rgba(138, 136, 136, 0.966);
+    font-family: 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+}
