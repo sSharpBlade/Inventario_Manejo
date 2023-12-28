@@ -8,11 +8,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
+import { UsuComponent } from './pages/usu/usu.component';
+import { LabComponent } from './pages/lab/lab.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    UsuComponent,
+    LabComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
