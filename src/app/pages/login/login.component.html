@@ -16,20 +16,20 @@
 
         <div class="login">
             <div class="formulario iniciar">
-                <form action="#" method="post">
+                <form [formGroup]="formularioLogin" (ngSubmit)="iniciarSesion()">
                     <h2>INICIAR SESIÓN</h2>
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="text" name="correo" required>
+                        <input type="text" formControlName="correo">
                         <label>correo electrónico</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-key'></i></span>
-                        <input type="password" name="pass" required>
+                        <input type="password" formControlName="password" required>
                         <label>contraseña</label>
                     </div>
 
-                    <button type="submit" class="btn" routerLink="//DIRECCION ESTABLECIDA/:id">Ingresar</button>
+                    <button type="submit" class="btn">Ingresar</button>
 
                     <div class="registrar">
                         <p>¿No tienes cuenta? <a href="#" class="registrar-enlace">Regístrate</a></p>

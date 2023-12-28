@@ -10,10 +10,16 @@ import { LoginService } from '../../services/login.service';
 export class LoginComponent implements OnInit {
 
   formularioRegistro: FormGroup;
+  formularioLogin: FormGroup;
 
   constructor(public formulario: FormBuilder, private loginService: LoginService) {
     this.formularioRegistro = this.formulario.group({
       nombre: [''],
+      correo: [''],
+      password: ['']
+    });
+
+    this.formularioLogin = this.formulario.group({
       correo: [''],
       password: ['']
     });
@@ -24,9 +30,22 @@ export class LoginComponent implements OnInit {
   }
 
   public registrarDatos(): any {
-    console.log("Hola mundo");
-    console.log(this.formularioRegistro.value);
     this.loginService.agregarUsuario(this.formularioRegistro.value).subscribe();
+  }
+
+  public iniciarSesion(): void {
+    const { correo, password } = this.formularioLogin.value;
+    this.loginService.autenticarUsuario(correo, password).subscribe(
+      respuesta => {
+        if (respuesta && respuesta.success) {
+          const id = respuesta.id;
+          const rol = respuesta.rol;
+          console.log(`Usuario autenticado. ID: ${id}, Rol: ${rol}`);
+        } else {
+          console.log("No esta registrado");
+        }
+      }
+    );
   }
 
   private cambio() {

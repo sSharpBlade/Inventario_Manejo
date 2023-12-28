@@ -17,4 +17,9 @@ export class LoginService {
     return this.clienteHttp.post(this.API + "?insertar=1", datosUsuario);
   }
 
+   autenticarUsuario(correo: string, password: string): Observable<any> {
+    const datosLogin = { correo, password };
+    return this.clienteHttp.post(this.API + "?consulta=1", datosLogin);
+  }
+
 }
