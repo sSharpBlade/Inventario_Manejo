@@ -1,7 +1,7 @@
 .container-principal {
-    background-image: url('../../assets/img/laboratorios_wallpaper.jpg'); 
+    background-image: url('../../assets/img/fondo_laboratorios.jpg'); 
     background-size: cover;
-    padding: 225px;
+    padding: 196px;
 }
 .btn-A{
     display: inline-block;
