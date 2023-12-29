@@ -8,15 +8,14 @@
         </div>
         <form action="/procesar-formulario" method="post" class="p-3">
             <div class="mb-3 row">
-                <label for="nombreLab" class="col-sm-4 col-form-label text-end">Elija una carrera</label>
-                <div class="col-sm-8">
-                    <select class="form-select short-input" id="carrera" name="carrera" required>
-                        <option value="ingenieria_software">Ingeniería en Software</option>
-                        <option value="ingenieria_ti">Ingeniería en TI</option>
-                        <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
-                       
-                    </select>
-                </div>
+                <div class="form-group row">
+                    <label for="carrera" class="col-sm-4 col-form-label text-end">Elija una carrera</label>
+                    <div class="col-sm-8">
+                      <select class="form-select short-input" id="carrera" name="carrera" [(ngModel)]="selectedCarrera" required>
+                        <option *ngFor="let carrera of carreras" [value]="carrera.id">{{ carrera.nombre }}</option>
+                      </select>
+                    </div>
+                  </div>
             </div>
             <div class="mb-3 row">
                 <label for="nombreLab" class="col-sm-4 col-form-label text-end">Nombre del Laboratorio</label>

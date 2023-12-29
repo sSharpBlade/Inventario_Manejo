@@ -7,7 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class LoboratoriosServiceService {
 
-  API: string = 'http:localhost/app_manejo'
+  API: string = 'http://localhost/app_manejo/'
 
-  constructor() { }
+  constructor( private http:HttpClient) {}
+  
+  obtenerTodasLasCarreras(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.API}?todas_las_carreras`);
+  }
 }
