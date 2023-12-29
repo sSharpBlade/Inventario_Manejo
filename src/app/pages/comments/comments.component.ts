@@ -11,31 +11,36 @@ import { DispositivoI, CategoriaI } from '../../services/model.interface';
 export class CommentsComponent implements OnInit {
 
   labId: any;
-  public selectedCategoria: CategoriaI = { id: '0', nombre: '' };
-  public categorias!: CategoriaI[];
-  public dispositivos!: DispositivoI[];
+  public selectedCategoria: CategoriaI = { id: "", nombre: "" };
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
+  public categorias: CategoriaI[] = [];
+  public dispositivos: DispositivoI[] = [];
 
   constructor(private route: ActivatedRoute, private servicioC: CommentService) { }
 
-  public valorCat(id: any) {
-    console.log(id);
-  }
-
   ngOnInit(): void {
+
     this.route.params.subscribe(params => {
       this.labId = params['id'];
     });
 
     this.servicioC.obtenerCategorias().subscribe(respuesta => {
-      console.log(respuesta);
       this.categorias = respuesta;
     });
 
-    this.servicioC.obtenerDispositivos(this.labId).subscribe(respuesta => {
-      console.log(respuesta);
-      this.dispositivos = respuesta;
-    });
+  }
 
+  onCategoria(value: any) {
+    this.selectedCategoria.id = value.value;
+    this.servicioC.obtenerDispositivos(this.labId, value.value).subscribe(respuesta => {
+      this.dispositivos = respuesta;
+      console.log(this.dispositivos);
+    });
+  }
+
+  onDispositivo(value: any) {
+    this.selectedDispositivo.id = value.value;
+    console.log("El dispositivo es: ", value.value)
   }
 
 }

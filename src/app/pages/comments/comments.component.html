@@ -2,9 +2,18 @@
 
 <form>
     <div>
-        <label for=" categoria">Categoría:</label>
-        <select id="categoria">
-            <option *ngFor="let categoria of categorias" value={{categoria.id}}>{{categoria.nombre}}</option>
+        <label for="categoria">Categoría:</label>
+        <select [(ngModel)]="selectedCategoria.id" [ngModelOptions]="{standalone: true}"
+            (change)="onCategoria($event.target)">
+            <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</option>
         </select>
     </div>
+
+    <br>
+
+    <select [(ngModel)]="selectedDispositivo.id" [ngModelOptions]="{standalone:true}"
+        (change)="onDispositivo($event.target)">
+        <option *ngFor="let disp of dispositivos" value="{{disp.id}}">{{disp.nombre}}</option>
+    </select>
+
 </form>
