@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommentService } from '../../services/comment.service';
 import { DispositivoI, CategoriaI } from '../../services/model.interface';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-comments',
@@ -15,9 +16,16 @@ export class CommentsComponent implements OnInit {
   public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
   public categorias: CategoriaI[] = [];
   public dispositivos: DispositivoI[] = [];
-  public comentario: string = '';
+  public msg: string = '';
+  public formularioMSG: FormGroup;
 
-  constructor(private route: ActivatedRoute, private servicioC: CommentService) { }
+  constructor(private route: ActivatedRoute, private servicioC: CommentService, private router: Router, private formulario: FormBuilder) {
+    this.formularioMSG = this.formulario.group({
+      idC: [""],
+      idD: [""],
+      msg: [""]
+    });
+  }
 
   ngOnInit(): void {
 
@@ -33,15 +41,27 @@ export class CommentsComponent implements OnInit {
 
   onCategoria(value: any) {
     this.selectedCategoria.id = value.value;
-    this.servicioC.obtenerDispositivos(this.labId, value.value).subscribe(respuesta => {
+    this.servicioC.obtenerDispositivos(this.labId, this.selectedCategoria.id).subscribe(respuesta => {
       this.dispositivos = respuesta;
-      console.log(this.dispositivos);
     });
   }
 
   onDispositivo(value: any) {
     this.selectedDispositivo.id = value.value;
-    console.log("El dispositivo es: ", value.value)
+  }
+
+  sendMsg() {
+    const { idD, msg } = this.formularioMSG.value;
+    if (idD != '' && msg != '') {
+      this.servicioC.enviarComentario(idD, msg).subscribe(respuesta => {
+        if (respuesta && respuesta.success) {
+          console.log(respuesta);
+          this.router.navigate(['/laboratorios', this.labId]);
+        } else {
+          console.log("No envio mensaje");
+        }
+      });
+    }
   }
 
 }

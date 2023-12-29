@@ -21,6 +21,9 @@ export class CommentService {
     return this.clienteHttp.post<CategoriaI[]>(this.API + "?categorias", '');
   }
 
-
+  enviarComentario(dispositivo: string, comentario: string): Observable<any> {
+    const datos = { dispositivo: dispositivo, comentario: comentario };
+    return this.clienteHttp.post(this.API + "?mensaje", datos);
+  }
 
 }
