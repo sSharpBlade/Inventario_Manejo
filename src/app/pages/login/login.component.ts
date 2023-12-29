@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
 
   public registrarDatos(): any {
     this.loginService.agregarUsuario(this.formularioRegistro.value).subscribe();
+    window.location.reload();
   }
 
   public iniciarSesion(): void {
