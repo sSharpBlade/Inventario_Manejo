@@ -8,3 +8,10 @@ export interface DispositivoI {
     nombre: string;
     idCategoria: string;
 }
+
+export interface ComentariosI {
+    id: string;
+    comentario: string;
+    idDispositivo: string;
+    estado: number;
+}

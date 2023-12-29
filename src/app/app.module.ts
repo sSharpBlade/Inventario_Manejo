@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommentsAdminComponent } from './pages/comments-admin/comments-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CommentsComponent
+    CommentsComponent,
+    CommentsAdminComponent
   ],
   imports: [
     BrowserModule,
