@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: radial-gradient(circle at -1.68% 59.11%, #60c9c8 0, #5cc8d0 5%, #5bc8d7 10%, #5dc7de 15%, #61c5e4 20%, #68c4e9 25%, #71c2ed 30%, #7bc0f0 35%, #86bef2 40%, #91bcf2 45%, #9db9f2 50%, #a9b6f1 55%, #b4b3ee 60%, #beb1ea 65%, #c8aee6 70%, #d1abe0 75%, #daa9da 80%, #e1a7d3 85%, #e7a5cc 90%, #eca4c4 95%, #efa3bc 100%);
+    background-size: cover; 
+  }
+  /* You can add global styles to this file, and also import other style files */

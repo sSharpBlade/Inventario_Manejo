@@ -61,12 +61,12 @@
 .short-input {
     height: 35px;
     width: 200px; /* Ajusta la altura según tus necesidades */
-    font-size: 15px;
+    font-size: 15px; /* Ajusta el tamaño de la fuente según tus necesidades */
     background-color: transparent;
     border-color: transparent;
     color: rgb(102, 102, 102);
- 
 }
+
 .short-inpu2 {
     height: 35px;
     width: 110px; /* Ajusta la altura según tus necesidades */

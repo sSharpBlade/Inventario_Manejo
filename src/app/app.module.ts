@@ -9,11 +9,14 @@ import { DeleteLabComponent } from './laboratorios/delete-lab/delete-lab.compone
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CarrerasComponent } from './carreras/carreras.component';
 import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras.component';
+import { BienesComponent } from './bienes/bienes.component';
+import { AddBienesComponent } from './bienes/add-bienes/add-bienes.component';
+import { DeleteBienesComponent } from './bienes/delete-bienes/delete-bienes.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, 
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, 
   ],
   imports: [
     BrowserModule,
