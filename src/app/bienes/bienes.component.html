@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <div class="container-principal"> 
     <div class="card">
         
@@ -17,10 +18,10 @@
                                 devices
                                 </span> Agregar dispositivos</a>
                                 
-                                <a href="/add-bienes/" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
+                                <a href="/nav-bienes/add-bienes" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
                                     settings_applications
                                     </span> Editar dispositivos</a>
-                            <a href="/delete-bienes/" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
+                            <a href="/nav-bienes/delete-bienes/" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
                                 delete_forever
                                 </span> Eliminar dispositivos</a>
                           </div>
@@ -44,7 +45,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                          
+                          <router-outlet></router-outlet>
                           <p class="card-text ct2" style="padding-bottom: 0px; margin-bottom: 1px;">Laboratorios</p>
                           <table class="table table-striped">
                             <thead>
@@ -79,14 +80,18 @@
                           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content" style="background-color: #404143e5;">
-                                    <div class="modal-body align-items-center text-center">
-                                        <span class="material-symbols-outlined" style="color: white; font-size: 2em;">
-                                            delete
-                                        </span>
+                                    <div class="modal-header" style="border-color: rgb(121, 120, 120);">
+                                        <div class="row text-center">
+                                            <h5 style="color: white;">¿Estás seguro de eliminar este dispositivo?</h5>
+                                        </div>
+                                        
+                                        <button type="button" class="btn btn-secondary" (click)="mostrarContenido('Mac')">Mac</button>
+                <button type="button" class="btn btn-secondary" (click)="mostrarContenido('Teclado')">Teclado</button>
+            </div>
+            <div class="modal-body align-items-center text-center">
+                <span class="material-symbols-outlined" style="color: white; font-size: 2em;">{{ contenidoModal }}</span>
                                     </div>
-                                    <div class="row text-center">
-                                        <h5 style="color: white;">¿Estás seguro de eliminar este dispositivo?</h5>
-                                    </div>
+                                    
                                     <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="button" class="btn btn-primary" style="background-color: #1c6ad1de; border-color: transparent;">Save changes</button>
@@ -103,3 +108,20 @@
            
     </div>
 </div>
+
+
+
+
+<script>
+    function mostrarContenido(opcion) {
+        var contenido = '';
+
+        if (opcion === 'Mac') {
+            contenido = 'Contenido para Mac';
+        } else if (opcion === 'Teclado') {
+            contenido = 'Contenido para Teclado';
+        }
+
+        $('#contenidoModal').html(contenido);
+    }
+</script>
