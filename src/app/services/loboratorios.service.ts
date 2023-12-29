@@ -12,6 +12,6 @@ export class LoboratoriosServiceService {
   constructor( private http:HttpClient) {}
   
   obtenerTodasLasCarreras(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.API}?todas_las_carreras`);
+    return this.http.get<any[]>(`${this.API}?todasLasCarreras`);
   }
 }
