@@ -15,6 +15,7 @@ export class CommentsComponent implements OnInit {
   public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
   public categorias: CategoriaI[] = [];
   public dispositivos: DispositivoI[] = [];
+  public comentario: string = '';
 
   constructor(private route: ActivatedRoute, private servicioC: CommentService) { }
 

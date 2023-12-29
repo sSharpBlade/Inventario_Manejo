@@ -8,9 +8,6 @@ import { CategoriaI, DispositivoI } from './model.interface';
 })
 export class CommentService {
 
-  private dispositivo: DispositivoI[] = [];
-  private categoria: CategoriaI[] = [];
-
   API: string = 'http://localhost/API_Inventarios/';
 
   constructor(private clienteHttp: HttpClient) { }
