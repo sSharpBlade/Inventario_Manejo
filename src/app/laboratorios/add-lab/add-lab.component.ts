@@ -13,9 +13,9 @@ export class AddLabComponent implements OnInit {
   constructor(private loboratoriosService: LoboratoriosServiceService) {}
 
   ngOnInit(): void {
-    // Llamada al servicio para obtener las carreras
     this.loboratoriosService.obtenerTodasLasCarreras().subscribe(
       data => {
+        console.log('Datos de carreras recibidos:', data);
         this.carreras = data;
       },
       error => {
