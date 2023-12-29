@@ -46,6 +46,10 @@
     text-align: left; border-color: transparent; background-color: transparent;
     color: black;
 }
+.btn2p {
+    text-align: left; border-color: transparent; background-color: #b9b5b44b;
+    color: black;
+}
 .btn2:hover {
     background-color: #b9b5b44b;
     

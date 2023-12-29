@@ -84,3 +84,7 @@
     border-color: transparent;
     color: rgb(102, 102, 102);
 }
+.btn2p {
+    text-align: left; border-color: transparent; background-color: #b9b5b44b;
+    color: black;
+}
