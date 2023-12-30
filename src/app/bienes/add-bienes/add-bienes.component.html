@@ -1,114 +1,73 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<div class="container-principal"> 
-    <div class="card">
-        
-        
-            <div class="row g-0 align-items-stretch">
-                <div class="col-4">
-                    <div class="card text-left h-100" style="background-color: transparent; border-color: transparent;">
-                        <div class="card-header text-left" style="border-color: transparent; opacity: 0.5;">
-                            🔴🟡🟢
-                        </div>
-                        <div class="card-body">
-                            
-                          <p class="card-text ct2" style="padding-bottom: 0px; margin-bottom: 1px;">Bienes</p>
-                          <div class="d-grid gap-2">
-                            <a href="/nav-bienes/" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
-                                devices
-                                </span> Agregar dispositivos</a>
-                                
-                                <a href="/add-bienes/" class="btn btn-black btn2 btn2p" type="button"><span class="material-symbols-outlined align-middle text-primary">
-                                    settings_applications
-                                    </span> Editar dispositivos</a>
-                            <a href="/delete-bienes/" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
-                                delete_forever
-                                </span> Eliminar dispositivos</a>
-                          </div>
-                        </div>
-                        
-                      </div>
-                </div>
-                <div class="col-8">
-                    <div class="card text-left h-100" style="border-color: transparent;" >
-                        <div class="card-header d-flex justify-content-between align-items-center" style="border-color: transparent; border-width: 0;">
-                            <span> 
-                                Editar dispositivos  
-                            </span>
-                            <div class="d-flex">
-                                <select class="form-select short-input mr-2" id="carreras" name="carrera" required>
-                                    <option value="ingenieria_software">Ingeniería en Software</option>
-                                    <option value="ingenieria_ti">Ingeniería en TI</option>
-                                    <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
-                                </select>
-                                <select class="form-select short-input short-inpu2 " id="laboratorios" name="carrera" required>
-                                    <option value="ingenieria_software">Laboratorio</option>
-                                    <option value="ingenieria_ti">Ingeniería en TI</option>
-                                    <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
-                                </select>
-                                <select class="form-select short-input short-inpu3 " id="dispositivos" name="carrera" required>
-                                    <option value="ingenieria_software">CPU</option>
-                                    <option value="ingenieria_ti">Monitor</option>
-                                    <option value="ingenieria_telecomunicaciones">Teclado</option>
-                                    <option value="ingenieria_telecomunicaciones">Mouse</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text ct2" style="padding-bottom: 0px; margin-bottom: 1px;">Dispositivos</p>
-                            <table class="table table-striped">
-                              <thead>
-                                <tr>
-                                  <th scope="col">#</th>
-                                  <th scope="col">First</th>
-                                  <th scope="col">Last</th>
-                                  <th scope="col">Handle</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button></td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td colspan="2">Larry the Bird</td>
-                                  <td>twitter</td>
-                                </tr>
-                              </tbody>
-                            </table>
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-lg">
-                                    <div class="modal-content" style="background-color: #404143e5;">
-                                        <div class="modal-body align-items-center text-center">
-                                            <span class="material-symbols-outlined" style="color: white; font-size: 2em;">
-                                                delete
-                                            </span>
-                                        </div>
-                                        <div class="row text-center">
-                                            <h5 style="color: white;">¿Estás seguro de eliminar este dispositivo?</h5>
-                                        </div>
-                                        <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary" style="background-color: #1c6ad1de; border-color: transparent;">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        
-                      </div>
-                </div>
+<div class="card text-left h-100" style="border-color: transparent;" >
+    <div class="card-header d-flex justify-content-between align-items-center" style="border-color: transparent; border-width: 0;">
+        <span> 
+            Agregar dispositivos  
+        </span>
+        <div class="d-flex">
+            <select class="form-select short-input mr-2" id="lab" name="carrera" required>
+                <option value="ingenieria_software">Ingeniería en Software</option>
+                <option value="ingenieria_ti">Ingeniería en TI</option>
+                <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
+            </select>
             
-           
+        </div>
     </div>
+    <div class="card-body">
+      <router-outlet></router-outlet>
+      <p class="card-text ct2" style="padding-bottom: 0px; margin-bottom: 1px;">Laboratorios</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir</button></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>twitter</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="background-color: #404143e5;">
+                <div class="modal-header" style="border-color: rgb(121, 120, 120);">
+                    <div class="row text-center">
+                        <h5 style="color: white;">¿Estás seguro de eliminar este dispositivo?</h5>
+                    </div>
+                    
+                    <button type="button" class="btn btn-secondary">Mac</button>
+<button type="button" class="btn btn-secondary">Teclado</button>
 </div>
+<div class="modal-body align-items-center text-center">
+<span class="material-symbols-outlined" style="color: white; font-size: 2em;"></span>
+                </div>
+                
+                <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" style="background-color: #1c6ad1de; border-color: transparent;">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+      
+    </div>
+    
+  </div>

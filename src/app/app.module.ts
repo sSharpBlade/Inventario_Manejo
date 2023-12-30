@@ -12,11 +12,12 @@ import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras
 import { BienesComponent } from './bienes/bienes.component';
 import { AddBienesComponent } from './bienes/add-bienes/add-bienes.component';
 import { DeleteBienesComponent } from './bienes/delete-bienes/delete-bienes.component';
+import { EditBienesComponent } from './bienes/edit-bienes/edit-bienes.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, 
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, 
   ],
   imports: [
     BrowserModule,

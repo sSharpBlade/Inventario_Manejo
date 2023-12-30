@@ -14,11 +14,11 @@
                             
                           <p class="card-text ct2" style="padding-bottom: 0px; margin-bottom: 1px;">Bienes</p>
                           <div class="d-grid gap-2">
-                            <a href="/nav-bienes/" class="btn btn-black btn2 btn2p" type="button"><span class="material-symbols-outlined align-middle text-primary">
+                            <a href="/nav-bienes/add-bienes/" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
                                 devices
                                 </span> Agregar dispositivos</a>
                                 
-                                <a href="/nav-bienes/add-bienes" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
+                                <a href="/nav-bienes/edit-bienes/" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
                                     settings_applications
                                     </span> Editar dispositivos</a>
                             <a href="/nav-bienes/delete-bienes/" class="btn btn-black btn2" type="button"><span class="material-symbols-outlined align-middle text-primary">
@@ -30,98 +30,9 @@
                       </div>
                 </div>
                 <div class="col-8">
-                    <div class="card text-left h-100" style="border-color: transparent;" >
-                        <div class="card-header d-flex justify-content-between align-items-center" style="border-color: transparent; border-width: 0;">
-                            <span> 
-                                Agregar dispositivos  
-                            </span>
-                            <div class="d-flex">
-                                <select class="form-select short-input mr-2" id="lab" name="carrera" required>
-                                    <option value="ingenieria_software">Ingeniería en Software</option>
-                                    <option value="ingenieria_ti">Ingeniería en TI</option>
-                                    <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
-                                </select>
-                                
-                            </div>
-                        </div>
-                        <div class="card-body">
-                          <router-outlet></router-outlet>
-                          <p class="card-text ct2" style="padding-bottom: 0px; margin-bottom: 1px;">Laboratorios</p>
-                          <table class="table table-striped">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir</button></td>
-                              </tr>
-                              <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>fat</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>twitter</td>
-                              </tr>
-                            </tbody>
-                          </table>
-
-                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                <div class="modal-content" style="background-color: #404143e5;">
-                                    <div class="modal-header" style="border-color: rgb(121, 120, 120);">
-                                        <div class="row text-center">
-                                            <h5 style="color: white;">¿Estás seguro de eliminar este dispositivo?</h5>
-                                        </div>
-                                        
-                                        <button type="button" class="btn btn-secondary" (click)="mostrarContenido('Mac')">Mac</button>
-                <button type="button" class="btn btn-secondary" (click)="mostrarContenido('Teclado')">Teclado</button>
-            </div>
-            <div class="modal-body align-items-center text-center">
-                <span class="material-symbols-outlined" style="color: white; font-size: 2em;">{{ contenidoModal }}</span>
-                                    </div>
-                                    
-                                    <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary" style="background-color: #1c6ad1de; border-color: transparent;">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                          
-                        </div>
-                        
-                      </div>
+                    <router-outlet></router-outlet>
                 </div>
             
            
     </div>
 </div>
-
-
-
-
-<script>
-    function mostrarContenido(opcion) {
-        var contenido = '';
-
-        if (opcion === 'Mac') {
-            contenido = 'Contenido para Mac';
-        } else if (opcion === 'Teclado') {
-            contenido = 'Contenido para Teclado';
-        }
-
-        $('#contenidoModal').html(contenido);
-    }
-</script>

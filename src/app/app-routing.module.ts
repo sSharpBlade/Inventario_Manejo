@@ -7,6 +7,7 @@ import { BienesComponent } from './bienes/bienes.component';
 import { AddBienesComponent } from './bienes/add-bienes/add-bienes.component';
 import { DeleteBienesComponent } from './bienes/delete-bienes/delete-bienes.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { EditBienesComponent } from './bienes/edit-bienes/edit-bienes.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path: 'add-lab', component: AddLabComponent},
   {path: 'nav-bienes', component: BienesComponent, children: [
     {path: 'add-bienes', component: AddBienesComponent},
-  {path: 'delete-bienes', component: DeleteBienesComponent}
+  {path: 'edit-bienes', component: EditBienesComponent},
+  {path: 'delete-bienes', component: DeleteBienesComponent},
+  {path: '',component: AddBienesComponent}
   ]},
   
 ];
