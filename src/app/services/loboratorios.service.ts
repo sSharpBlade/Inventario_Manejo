@@ -16,9 +16,9 @@ export class LoboratoriosServiceService {
     return this.http.post<carrerasI[]>(this.API + "?todasLasCarreras",'');
   }
 
-  insertarLaboratorio(nom_lab:string, ubi_lab:string,cap_mes_lab:string, id_car_lab: string): Observable<any> {
-    const datos = {id_car_lab:id_car_lab, nom_lab:nom_lab, ubi_lab: ubi_lab, cap_mes_lab:cap_mes_lab }
-    return this.http.post(this.API + "?insertarLaboratorio", datos);
+  insertLab(nom_lab:string, ubi_lab:string,cap_mes_lab:string, id_car_lab: string): Observable<any> {
+    const datos = {nom_lab:nom_lab, ubi_lab:ubi_lab, cap_mes_lab:cap_mes_lab,id_car_lab:id_car_lab }
+    return this.http.post(this.API + "?insertarLaboratorios", datos);
   }
 
   obtenerLaboratorios(): Observable<laboratorioI[]> {

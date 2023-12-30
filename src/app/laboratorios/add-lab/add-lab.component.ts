@@ -40,10 +40,10 @@ export class AddLabComponent implements OnInit {
     console.log(id.value);
   }
   
-  insertarLaboratorio() {
-    const{id_car, nom_lab, ubi_lab, cap_mes_lab} = this.Formulario.value
-    if (id_car!= '' && nom_lab!= '' && ubi_lab!= '' && cap_mes_lab!= '') {
-      this.loboratoriosService.insertarLaboratorio(id_car, nom_lab, ubi_lab, cap_mes_lab).subscribe(respuesta =>{ 
+  insert() {
+    const{nom_lab, ubi_lab, cap_mes_lab,id_car} = this.Formulario.value
+    if (nom_lab!= '' && ubi_lab!= '' && cap_mes_lab!= ''&& id_car!= ''  ) {
+      this.loboratoriosService.insertLab(nom_lab, ubi_lab, cap_mes_lab,id_car, ).subscribe(respuesta =>{ 
         console.log(respuesta)
         if (respuesta && respuesta.success) {
           window.location.reload();
