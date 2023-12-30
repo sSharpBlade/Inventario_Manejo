@@ -14,4 +14,8 @@ export class LoboratoriosServiceService {
   obtenerTodasLasCarreras(): Observable<any[]> {
     return this.http.get<any[]>(`${this.API}?todasLasCarreras`);
   }
+
+  insertarLaboratorio(laboratorio: any): Observable<any> {
+    return this.http.post<any>(`${this.API}/insertarLaboratorio`, laboratorio);
+  }
 }
