@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,10 +23,11 @@ import { SidebarUserComponent } from './user/sidebar-user/sidebar-user.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { carrerasI } from './model.laboratorios';
+import { carrerasI, laboratorioI } from './model.laboratorios';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +16,19 @@ export class LoboratoriosServiceService {
     return this.http.post<carrerasI[]>(this.API + "?todasLasCarreras",'');
   }
 
-//  insertarLaboratorio(nombre: string, ubicacion: string, capMesas: number, laboratorio: any): Observable<any> {
-  //  const datos = { nombre: nombre, ubicacion: ubicacion, capMesas: capMesas, laboratorio: laboratorio };
-    //return this.http.post<any>(`${this.API}/insertarLaboratorio`, datos);
-  //}
-
-  insertarLaboratorio(laboratorio: any): Observable<any> {
-    return this.http.post<any>(`${this.API}/insertarLaboratorio`, laboratorio);
+  insertarLaboratorio(nom_lab:string, ubi_lab:string,cap_mes_lab:string, id_car_lab: string): Observable<any> {
+    const datos = {id_car_lab:id_car_lab, nom_lab:nom_lab, ubi_lab: ubi_lab, cap_mes_lab:cap_mes_lab }
+    return this.http.post(this.API + "?insertarLaboratorio", datos);
   }
+
+  obtenerLaboratorios(): Observable<laboratorioI[]> {
+    return this.http.post<laboratorioI[]>(this.API + "?laboratoriosCreados",'');
+  }
+
+  eliminarLaboratorio(id: string): Observable<any> {
+    const valor = { id: id };
+    return this.http.post(this.API + "?eliminarLaboratorio", valor);
+  }
+
+
 }

@@ -6,37 +6,35 @@
         <div class="card-header">
             Administrador  
         </div>
-        <form method="post" class="p-3">
+        <form method="get" class="p-3" [formGroup]="Formulario" (ngSubmit)="insertarLaboratorio()">
             <div class="mb-3 row">
                 <div class="form-group row">
                     <label for="carrera" class="col-sm-4 col-form-label text-end">Elija una carrera</label>
                     <div class="col-sm-8">
-                        <select class="form-select short-input" id="carrera" name="carrera" [(ngModel)]="selectedCarrera" required>
+                        <select class="form-select short-input" id="carrera" name="carrera"(change)="idCarreras($event.target)" formControlName="id_car">
                             <option *ngFor="let carrera of carreras" [value]="carrera.id_car">{{ carrera.nom_car }}</option>
                         </select>
                     </div>
                 </div>                
             </div>
             <div class="mb-3 row">
-                <label for="nombreLab" class="col-sm-4 col-form-label text-end">Nombre del Laboratorio</label>
+                <label class="col-sm-4 col-form-label text-end">Nombre del Laboratorio</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Nombre del Laboratorio">
+                    <input type="text" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Nombre del Laboratorio" formControlName="nom_lab">
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="nombreLab" class="col-sm-4 col-form-label text-end">Ubicacion</label>
+                <label  class="col-sm-4 col-form-label text-end">Ubicacion</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Ubicacion">
+                    <input type="text" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Ubicacion" formControlName="ubi_lab" >
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="nombreLab" class="col-sm-4 col-form-label text-end">Capacidad de mesas</label>
+                <label class="col-sm-4 col-form-label text-end">Capacidad de mesas</label>
                 <div class="col-sm-8">
-                    <input type="number" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Capacidad de mesas" min="0">
+                    <input type="number" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Capacidad de mesas" min="0" formControlName="cap_mes_lab">
                 </div>
-            </div>
-
-           
+            </div>           
             <button type="submit" class="btn"><span class="material-symbols-outlined">save_as</span></button>
         </form>
         <div class="card-footer text-body-secondary">
