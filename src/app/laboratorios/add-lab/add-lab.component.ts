@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoboratoriosServiceService } from '../../services/loboratorios.service';
+import { carrerasI } from '../../services/model.laboratorios';
 
 @Component({
   selector: 'app-add-lab',
@@ -8,8 +9,8 @@ import { LoboratoriosServiceService } from '../../services/loboratorios.service'
 })
 
 export class AddLabComponent implements OnInit {
-  carreras: any[] = [];
-  selectedCarrera: any;
+  carreras: carrerasI[] = [];
+  selectedCarrera: carrerasI = {id_car:'',nom_car:'',est_carr:''};
   nuevoLaboratorio: any = {
     nombreLab: '',
     ubicacion: '',
@@ -19,15 +20,12 @@ export class AddLabComponent implements OnInit {
 
   constructor(private loboratoriosService: LoboratoriosServiceService) {}
 
+  
   ngOnInit(): void {
-    // Llamada al servicio para obtener las carreras
     this.loboratoriosService.obtenerTodasLasCarreras().subscribe(
       data => {
         this.carreras = data;
       },
-      error => {
-        console.error('Error al obtener las carreras', error);
-      }
     );
   }
 

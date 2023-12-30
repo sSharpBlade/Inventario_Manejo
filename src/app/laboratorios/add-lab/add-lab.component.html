@@ -6,13 +6,13 @@
         <div class="card-header">
             Administrador  
         </div>
-        <form action="/procesar-formulario" method="post" class="p-3">
+        <form method="post" class="p-3">
             <div class="mb-3 row">
                 <div class="form-group row">
                     <label for="carrera" class="col-sm-4 col-form-label text-end">Elija una carrera</label>
                     <div class="col-sm-8">
-                        <select class="form-select short-input" id="carrera" name="carrera" [(ngModel)]="selectedCarrera" required style="color: black;">
-                            <option *ngFor="let carrera of carreras" [value]="carrera.id">{{ carrera.nombre }}</option>
+                        <select class="form-select short-input" id="carrera" name="carrera" [(ngModel)]="selectedCarrera" required>
+                            <option *ngFor="let carrera of carreras" [value]="carrera.id_car">{{ carrera.nom_car }}</option>
                         </select>
                     </div>
                 </div>                
