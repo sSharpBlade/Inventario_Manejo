@@ -12,9 +12,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CrearCarrerasComponent implements OnInit {
   carreras: carrerasI[] = [];
-  selectedCarrera: carrerasI = {id_car:'',nom_car:'',est_carr:''};
+  selectedCarrera: carrerasI = {id_car:'',nom_car:'', sem_car:'', tit_car:'',est_carr:''};
   id_car= '';
   nom_car= '';
+  sem_car= '';
+  tit_car= '';
   Formulario:FormGroup;
 
   constructor(private carrerasUService: CarrerasUniServiceService, private formulario: FormBuilder) {
@@ -22,6 +24,8 @@ export class CrearCarrerasComponent implements OnInit {
     this.Formulario = this.formulario.group({
       id_car: [""],
       nom_car: [""],
+      sem_car: [""],
+      tit_car: [""]
     });
   }
 
@@ -38,9 +42,9 @@ export class CrearCarrerasComponent implements OnInit {
   }
 
   insert() {
-    const{id_car, nom_car} = this.Formulario.value
-    if (id_car!= '' && nom_car!= ''  ) {
-      this.carrerasUService.insertCar(id_car, nom_car, ).subscribe(respuesta =>{ 
+    const{id_car, nom_car, sem_car, tit_car} = this.Formulario.value
+    if (id_car!= '' && nom_car!= '' && sem_car!= ''&& tit_car!= ''  ) {
+      this.carrerasUService.insertCar(id_car, nom_car,sem_car, tit_car ).subscribe(respuesta =>{ 
         console.log(respuesta)
         if (respuesta && respuesta.success) {
           window.location.reload();

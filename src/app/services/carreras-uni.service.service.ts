@@ -16,8 +16,8 @@ export class CarrerasUniServiceService {
     return this.http.post<carrerasI[]>(this.API + "?todasLasCarreras",'');
   }
 
-  insertCar(id_car:string, nom_car:string): Observable<any> {
-    const datos = {id_car:id_car, nom_car:nom_car }
+  insertCar(id_car:string, nom_car:string, sem_car:string, tit_car:string): Observable<any> {
+    const datos = {id_car:id_car, nom_car:nom_car, sem_car:sem_car, tit_car:tit_car }
     return this.http.post(this.API + "?insertarCarrera", datos);
   }
 
