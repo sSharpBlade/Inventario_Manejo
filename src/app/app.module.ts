@@ -13,11 +13,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CarrerasComponent } from './carreras/carreras.component';
 import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras.component';
 import { SidebarUserComponent } from './user/sidebar-user/sidebar-user.component';
+import { ContPrincipalComponent } from './user/principal/cont-principal/cont-principal.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent,
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent,
   ],
   imports: [
     BrowserModule,

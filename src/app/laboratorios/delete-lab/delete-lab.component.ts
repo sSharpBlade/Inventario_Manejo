@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LoboratoriosServiceService } from '../../services/loboratorios.service';
 import { laboratorioI } from '../../services/model.laboratorios';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-delete-lab',
@@ -11,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class DeleteLabComponent {
  public labo: laboratorioI[] = [];
 
-  constructor(private loboratoriosService: LoboratoriosServiceService) {  }
+  constructor(private loboratoriosService: LoboratoriosServiceService) {}
   
     ngOnInit(): void {
       this.loboratoriosService.obtenerLaboratorios().subscribe(

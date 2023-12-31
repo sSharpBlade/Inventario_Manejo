@@ -1,0 +1,15 @@
+<div class="container-principal">
+    <div class="card text-center">
+      <div class="card-header">
+        AQUI SE PRESENTARAN TODAS LAS CARRERAS ACTUALMENTE
+      </div>
+      <div class="card-body" *ngFor="let carrera of car">
+        <h5 class="card-title">{{ carrera.nom_car }}</h5>
+        <p class="card-text">ID {{ carrera.id_car }}</p>
+        <a href="" class="btn-A btn">Ver Laboratorios</a>
+      </div>
+      <div class="card-footer text-body-secondary">
+        GrupoDinmita
+      </div>
+    </div>
+  </div>
