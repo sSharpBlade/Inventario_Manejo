@@ -13,6 +13,7 @@ import { BienesComponent } from './bienes/bienes.component';
 import { AddBienesComponent } from './bienes/add-bienes/add-bienes.component';
 import { DeleteBienesComponent } from './bienes/delete-bienes/delete-bienes.component';
 import { EditBienesComponent } from './bienes/edit-bienes/edit-bienes.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditBienesComponent } from './bienes/edit-bienes/edit-bienes.component'
     AppRoutingModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

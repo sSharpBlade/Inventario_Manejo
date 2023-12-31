@@ -4,22 +4,19 @@
             Editar dispositivos  
         </span>
         <div class="d-flex">
-            <select class="form-select short-input mr-2" id="carreras" name="carrera" required>
-                <option value="ingenieria_software">Ingeniería en Software</option>
-                <option value="ingenieria_ti">Ingeniería en TI</option>
-                <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
+          <select #carreraSelect  formControlName="idCar" class="form-select short-input "  (change)="onCarreras($event.target)"  >
+            <option *ngFor="let carrera of carreras" [value]="carrera.id">{{carrera.nombre}}</option>
             </select>
-            <select class="form-select short-input short-inpu2 " id="laboratorios" name="carrera" required>
-                <option value="ingenieria_software">Laboratorio</option>
-                <option value="ingenieria_ti">Ingeniería en TI</option>
-                <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
+            <div *ngIf="laboratorios.length > 0">
+            <select formControlName="idLab" class="form-select short-input short-inpu2 "(change)="onLaboratorios($event.target)">
+                <option *ngFor="let laboratorio of laboratorios" [value]="laboratorio.id">{{laboratorio.nombre}}</option>
             </select>
-            <select class="form-select short-input short-inpu3 " id="dispositivos" name="carrera" required>
-                <option value="ingenieria_software">CPU</option>
-                <option value="ingenieria_ti">Monitor</option>
-                <option value="ingenieria_telecomunicaciones">Teclado</option>
-                <option value="ingenieria_telecomunicaciones">Mouse</option>
+            </div>  
+            <div *ngIf="laboratorios.length > 0">
+            <select formControlName="idC" class="form-select short-input short-inpu3 " id="dispositivos" (change)="onCategoria($event.target)"  >
+              <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</option>
             </select>
+          </div>
         </div>
     </div>
     <div class="card-body">

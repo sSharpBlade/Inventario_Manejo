@@ -4,10 +4,9 @@
             Agregar dispositivos  
         </span>
         <div class="d-flex">
-            <select class="form-select short-input mr-2" id="lab" name="carrera" required>
-                <option value="ingenieria_software">Ingeniería en Software</option>
-                <option value="ingenieria_ti">Ingeniería en TI</option>
-                <option value="ingenieria_telecomunicaciones">Ingeniería en Telecomunicaciones</option>
+            
+          <select formControlName="idCar" class="form-select short-input  " id="carreras" (change)="onCarreras($event.target)"  >
+            <option *ngFor="let carrera of carreras" [value]="carrera.id">{{carrera.nombre}}</option>
             </select>
             
         </div>
