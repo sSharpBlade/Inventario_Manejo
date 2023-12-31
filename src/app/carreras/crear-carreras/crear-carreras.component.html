@@ -4,37 +4,34 @@
 <div class="container-principal"> 
     <div class="card text-center ">
         <div class="card-header">
-            Administrador123  
+            Administrador 
         </div>
         <form method="get" class="p-3" [formGroup]="Formulario" (ngSubmit)="insert()">
             <div class="mb-3 row">
-                <div class="form-group row">
-                    <label for="carrera" class="col-sm-4 col-form-label text-end">Elija una carrera</label>
-                    <div class="col-sm-8">
-                        <select class="form-select short-input" id="carrera" name="carrera"(change)="idCarreras($event.target)" formControlName="id_car">
-                            <option *ngFor="let carrera of carreras" [value]="carrera.id_car">{{ carrera.nom_car }}</option>
-                        </select>
-                    </div>
-                </div>                
-            </div>
-            <div class="mb-3 row">
-                <label class="col-sm-4 col-form-label text-end">Nombre del Laboratorio</label>
+                <label  class="col-sm-4 col-form-label text-end">Id carrera: </label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Nombre del Laboratorio" formControlName="nom_lab">
+                    <input type="text" class="form-control input-placeholder short-input" id="idCar" name="idCar" required placeholder="Ej: 5" formControlName="id_car" >
                 </div>
             </div>
             <div class="mb-3 row">
-                <label  class="col-sm-4 col-form-label text-end">Ubicacion</label>
+                <label class="col-sm-4 col-form-label text-end">Nombre de la carrera:</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Ubicacion" formControlName="ubi_lab" >
+                    <input type="text" class="form-control input-placeholder short-input" id="nombreCar" name="nombreCar" required placeholder="Ej: Telecomunicaciones" formControlName="nom_car">
                 </div>
             </div>
             <div class="mb-3 row">
-                <label class="col-sm-4 col-form-label text-end">Capacidad de mesas</label>
+                <label class="col-sm-4 col-form-label text-end">Semestres:</label>
                 <div class="col-sm-8">
-                    <input type="number" class="form-control input-placeholder short-input" id="nombreLab" name="nombreLab" required placeholder="Capacidad de mesas" min="0" formControlName="cap_mes_lab">
+                    <input type="number" class="form-control input-placeholder short-input" id="semestreCar" name="semestreCar" required placeholder="Ej: 8" formControlName="sem_car">
                 </div>
-            </div>           
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-4 col-form-label text-end">Titulo que otorga:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control input-placeholder short-input" id="tituloCar" name="tituloCar" required placeholder="Ej: Ing. Telecomunicaciones" formControlName="tit_car">
+                </div>
+            </div>
+                
             <button type="submit" class="btn"><span class="material-symbols-outlined">save_as</span></button>
         </form>
         <div class="card-footer text-body-secondary">
