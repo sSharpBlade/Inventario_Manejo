@@ -30,5 +30,15 @@ export class LoboratoriosServiceService {
     return this.http.post(this.API + "?eliminarLaboratorio", valor);
   }
 
+  obtenerLaboratoriosPorCarrera(idCarrera: number): Observable<any> {
+    const url = `${this.API}?laboDeCarreras`;
+    const datos = { idCar: idCarrera };
+    return this.http.post(url, JSON.stringify(datos));
+  }
+  obtenerLaboratorios2(idCar: string): Observable<laboratorioI[]> {
+    const datos = { idCar: idCar };
+    return this.http.post<laboratorioI[]>(this.API + "?laboratoriosU", datos);
+  }
+
 
 }

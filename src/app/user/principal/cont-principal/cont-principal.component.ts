@@ -19,5 +19,9 @@ export class ContPrincipalComponent {
       },
     );
   }
+  
+  verLaboratorios(idCarrera: number) {
+    console.log(`Ver laboratorios de la carrera con ID ${idCarrera}`);
+  }
 
 }

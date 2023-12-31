@@ -1,0 +1,16 @@
+  <div class="container-principal">
+    <div class="card text-center">
+      <div class="card-header">
+        <h5 class="card-title">Detalles de Laboratorios</h5>
+      </div>
+
+      <div class="card-body" *ngFor="let labo of labo">
+      <h6 class="card-subtitle mb-2 text-muted">{{ labo.nom_lab }}</h6>
+      <p class="card-text">Ubicación: {{ labo.ubi_lab }}</p>
+      <p class="card-text">Capacidad: {{ labo.cap_mes_lab}}</p>
+    </div>
+      <div class="card-footer text-body-secondary">
+        GrupoDinmita
+      </div>
+    </div>
+  </div>
