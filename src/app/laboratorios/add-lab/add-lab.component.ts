@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 export class AddLabComponent implements OnInit {
   carreras: carrerasI[] = [];
-  selectedCarrera: carrerasI = {id_car:'',nom_car:'',est_carr:''};
+  selectedCarrera: carrerasI = {id_car:'',nom_car:'',sem_car:'', tit_car:'', est_carr:''};
   nombreLab= '';
   ubicacion= '';
   capacidadMesas= 0;
