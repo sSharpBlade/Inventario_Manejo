@@ -8,6 +8,7 @@ import { ContPrincipalComponent } from './user/principal/cont-principal/cont-pri
 
 import { CarrerasComponent } from './carreras/carreras.component';
 import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras.component';
+import { EliminarCarreraComponent } from './carreras/eliminar-carrera/eliminar-carrera.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'principal', component: ContPrincipalComponent },
 
   {path: 'nav-car', component: CarrerasComponent},
-  {path: 'crear-car', component: CrearCarrerasComponent}
+  {path: 'crear-car', component: CrearCarrerasComponent},
+  {path: 'eliminar-car', component: EliminarCarreraComponent}
 ];
 
 @NgModule({
