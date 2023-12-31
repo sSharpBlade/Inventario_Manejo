@@ -7,10 +7,11 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">{{ lab.nom_lab }}</h5>
-      <p class="card-text">ID {{ lab.id }}</p>
-      <p class="card-text">NUMERO DE MESAS {{ lab.cap_mes_lab }}</p>
-      <p class="card-text">UBICACIÓN {{ lab.ubi_lab }}</p>
+      <p class="card-text">Identificador: {{ lab.id }}</p>
+      <p class="card-text">Se encuentra en: {{ lab.ubi_lab }}</p>
+      <p class="card-text">{{ lab.cap_mes_lab }} Mesas Disponibles</p>
       <button type="button" class="btn btn-success" [value]="lab.id" (click)="eliminar($event.target)">Eliminar</button>
+      <button type="button" class="btn btn-info" style="margin-left: 10%;">Comentarios</button>
     </div>
     <div class="card-footer text-body-secondary">
       GrupoDinmita
