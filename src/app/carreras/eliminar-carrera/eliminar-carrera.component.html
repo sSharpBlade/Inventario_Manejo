@@ -7,9 +7,9 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">{{ car.nom_car }}</h5>
-      <p class="card-text">ID {{ car.id_car }}</p>
-      <p class="card-text">SEMESTRE {{ car.sem_car }}</p>
-      <p class="card-text">TITULO OTOGADO {{ car.tit_car}}</p>
+      <p class="card-text">ID: {{ car.id_car }}</p>
+      <p class="card-text">SEMESTRES: {{ car.sem_car }}</p>
+      <p class="card-text">TITULO OTOGADO: {{ car.tit_car}}</p>
       <button type="button" class="btn btn-success" [value]="car.id_car" (click)="eliminar($event.target)">Eliminar</button>
     </div>
     <div class="card-footer text-body-secondary">
