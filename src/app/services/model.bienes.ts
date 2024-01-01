@@ -7,6 +7,8 @@ export interface DispositivoI {
     id: string;
     nombre: string;
     idCategoria: string;
+    marca: string;
+    anio: string;
 }
 
 export interface ComentariosI {

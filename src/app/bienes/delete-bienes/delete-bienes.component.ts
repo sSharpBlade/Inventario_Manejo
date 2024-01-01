@@ -21,7 +21,7 @@ export class DeleteBienesComponent implements OnInit, AfterViewInit{
   public laboratorios: LaboratorioI[] = [];
   public selectedLaboratorio: LaboratorioI = { id: "", nombre: "", idCarreraPer: "" };
   public dispositivos: DispositivoI[] = [];
-  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "", marca: "", anio: "" };
   public formularioMSG: FormGroup;
 
   constructor(private  toastr: ToastrService ,private route: ActivatedRoute, private servicioC: CommentService, private router: Router, private formulario: FormBuilder) {
@@ -90,35 +90,7 @@ export class DeleteBienesComponent implements OnInit, AfterViewInit{
 
     console.log(this.selectedDispositivo);
   }
-  actualizarDispositivos() {
-    console.log("actualizarDispositivos");
-    const { nomDis } = this.formularioMSG.value;
-    if (nomDis != '' && this.selectedCategoria.id != '') {
-      if(nomDis != this.selectedDispositivo.nombre){
-      this.servicioC.actualizarDispositivo(this.selectedDispositivo.id,nomDis).subscribe(respuesta => {
-        if (respuesta && respuesta.success) {
-          console.log(respuesta);
-          //window.location.reload();
-          this.toastr.success('Actualizado Correctamente', 'Hecho!');
-          this.selectedDispositivo.nombre = nomDis;
-          this.dispositivos = [];
-          this.servicioC.obtenerDispositivos(this.selectedLaboratorio.id, this.selectedCategoria.id).subscribe(respuesta => {
-            this.dispositivos = respuesta;
-          });
-          
-        } else {
-          console.log("No envio mensaje in");
-          this.toastr.error('Hello world!', 'Toastr fun!');
-        }
-      });
-    } else {
-      this.toastr.show('No hay cambios', 'Ups..!');
-    }
-    } else {
-      this.toastr.error('Llena los campos', 'Error!');
-      console.log("No envio mensaje");
-    }
-  }
+
   //eliminar dispositivo
   eliminarDispositivo(){
     console.log("eliminarDispositivo");

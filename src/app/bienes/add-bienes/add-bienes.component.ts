@@ -23,7 +23,7 @@ export class AddBienesComponent implements OnInit, AfterViewInit {
   public laboratorios: LaboratorioI[] = [];
   public selectedLaboratorio: LaboratorioI = { id: "", nombre: "", idCarreraPer: "" };
   public dispositivos: DispositivoI[] = [];
-  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "", marca: "", anio: ""};
   public formularioMSG: FormGroup;
   public modalElement: any;
 
@@ -34,7 +34,9 @@ export class AddBienesComponent implements OnInit, AfterViewInit {
       idC: [""],
       idD: [""],
       msg: [""],
-      nomDis: [""]
+      nomDis: [""],
+      marDis: [""],
+      anioDis: [""]
     });
     this.carreraSelect = new ElementRef(null);
   }
@@ -110,14 +112,16 @@ export class AddBienesComponent implements OnInit, AfterViewInit {
   }
   insertarDispositivos(){
     console.log("insertarDispositivos")
-    const { nomDis } = this.formularioMSG.value;
+    const { nomDis, marDis, anioDis } = this.formularioMSG.value;
     if (nomDis != '' && this.selectedCategoria.id != '') {
-      this.servicioC.insertarDispositivo(nomDis, this.selectedCategoria.id,this.selectedLaboratorio.id).subscribe(respuesta => {
+      this.servicioC.insertarDispositivo(nomDis, this.selectedCategoria.id,this.selectedLaboratorio.id,marDis,anioDis).subscribe(respuesta => {
         if (respuesta && respuesta.success) {
           console.log(respuesta);
           //window.location.reload();
           this.toastr.success('Guardado Correctamente', 'Hecho!');
           this.formularioMSG.controls['nomDis'].setValue('');
+          this.formularioMSG.controls['marDis'].setValue('');
+          this.formularioMSG.controls['anioDis'].setValue('');
           
         } else {
           console.log("No envio mensaje in");

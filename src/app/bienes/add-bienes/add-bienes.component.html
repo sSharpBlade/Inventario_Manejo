@@ -37,14 +37,14 @@
         </tbody>
       </table>
   
-      <div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-ms">
             <div class="modal-content " style="background-color: #404143e5;">
               <div class="modal-header text-center" style="border-color: transparent; padding-top: 6px; padding-bottom: 0; margin-bottom: 0;">
                 <h5 class="mx-auto" style="color: white;">Agregar dispositivo</h5>
                 
               </div>
-              <div class="modal-header d-flex justify-content-center align-items-center text-center" style="border-color: rgb(158, 158, 158);">
+              <div class="modal-header d-flex justify-content-center " style="border-color: rgb(158, 158, 158);">
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                   <div *ngFor="let categoria of categorias">
                     <input type="radio" class="btn-check"  name="btnradio" id="btnradio{{categoria.id}}" autocomplete="off" (click)="onCategoriaSelected(categoria)">
@@ -53,14 +53,18 @@
                 </div>
                 
               </div>
-              <div class="modal-body align-items-center text-center">
+              <div class="modal-body ">
                   
                 <form  [formGroup]="formularioMSG" (ngSubmit)="insertarDispositivos()">  
                 <div class="row "> 
                    
                     <div class="mb-3 text-left">
                       <label for="exampleInputPassword1" class="form-label" style="color: white;">Nombre:</label>
-                      <input formControlName="nomDis" class="form-control form-control-sm" style="border-color: rgb(138, 138, 138);" autocomplete="off">
+                      <input formControlName="nomDis" class="form-control form-control-sm" style="border-color: rgb(138, 138, 138); margin-bottom: 3px;" autocomplete="off">
+                      <label for="exampleInputPassword1" class="form-label" style="color: white;">Marca:</label>
+                      <input formControlName="marDis" class="form-control form-control-sm" style="border-color: rgb(138, 138, 138); margin-bottom: 3px;" autocomplete="off">
+                      <label for="exampleInputPassword1" class="form-label" style="color: white;">Año:</label>
+                      <input formControlName="anioDis" class="form-control form-control-sm" style="border-color: rgb(138, 138, 138);" autocomplete="off">
                     </div>
                   
                 </div>

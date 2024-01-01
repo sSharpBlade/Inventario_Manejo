@@ -21,7 +21,7 @@ export class EditBienesComponent implements OnInit, AfterViewInit{
   public laboratorios: LaboratorioI[] = [];
   public selectedLaboratorio: LaboratorioI = { id: "", nombre: "", idCarreraPer: "" };
   public dispositivos: DispositivoI[] = [];
-  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" , marca: "", anio: ""};
   public formularioMSG: FormGroup;
 
   constructor(private  toastr: ToastrService ,private route: ActivatedRoute, private servicioC: CommentService, private router: Router, private formulario: FormBuilder) {
@@ -31,7 +31,9 @@ export class EditBienesComponent implements OnInit, AfterViewInit{
       idC: [""],
       idD: [""],
       msg: [""],
-      nomDis: [""]
+      nomDis: [""],
+      marDis: [""],
+      anioDis: [""]
     });
     this.carreraSelect = new ElementRef(null);
   }
@@ -86,16 +88,20 @@ export class EditBienesComponent implements OnInit, AfterViewInit{
     this.selectedDispositivo.id = value.id;
     this.selectedDispositivo.nombre = value.nombre;
     this.selectedDispositivo.idCategoria = this.selectedCategoria.id;
+    this.selectedDispositivo.marca = value.marca;
+    this.selectedDispositivo.anio = value.anio;
     this.formularioMSG.controls['nomDis'].setValue(this.selectedDispositivo.nombre);
+    this.formularioMSG.controls['marDis'].setValue(this.selectedDispositivo.marca);
+    this.formularioMSG.controls['anioDis'].setValue(this.selectedDispositivo.anio);
 
     console.log(this.selectedDispositivo);
   }
   actualizarDispositivos() {
     console.log("actualizarDispositivos");
-    const { nomDis } = this.formularioMSG.value;
+    const { nomDis,marDis,anioDis } = this.formularioMSG.value;
     if (nomDis != '' && this.selectedCategoria.id != '') {
-      if(nomDis != this.selectedDispositivo.nombre){
-      this.servicioC.actualizarDispositivo(this.selectedDispositivo.id,nomDis).subscribe(respuesta => {
+      if(nomDis != this.selectedDispositivo.nombre || marDis != this.selectedDispositivo.marca || anioDis != this.selectedDispositivo.anio){
+      this.servicioC.actualizarDispositivo(this.selectedDispositivo.id,nomDis,marDis,anioDis).subscribe(respuesta => {
         if (respuesta && respuesta.success) {
           console.log(respuesta);
           //window.location.reload();

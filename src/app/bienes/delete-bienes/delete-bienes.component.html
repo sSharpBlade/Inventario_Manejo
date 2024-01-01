@@ -29,6 +29,8 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Dispositivos</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Año</th>
             <th scope="col">Acción</th>
           </tr>
         </thead>
@@ -36,6 +38,8 @@
           <tr *ngFor="let dispositivo of dispositivos; let i = index">
             <th scope="row">{{i+1}}</th>
             <td>{{dispositivo.nombre}}</td>
+            <td>{{dispositivo.marca}}</td>
+            <td>{{dispositivo.anio}}</td>
             <td><button [value]="dispositivo.id" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDispositivos(dispositivo)">Eliminar</button></td>
           </tr>
         </tbody>

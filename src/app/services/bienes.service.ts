@@ -31,12 +31,12 @@ export class CommentService {
     return this.clienteHttp.post(this.API + "?mensaje", datos);
   }
 
-  insertarDispositivo(nombre: string, idCatPer: string,idLabPer: string): Observable<any> {
-    const datos = { nombre: nombre, idCatPer: idCatPer, idLabPer: idLabPer };
+  insertarDispositivo(nombre: string, idCatPer: string,idLabPer: string,marca: string, anio: string): Observable<any> {
+    const datos = { nombre: nombre, idCatPer: idCatPer, idLabPer: idLabPer ,marca: marca, anio: anio};
     return this.clienteHttp.post(this.API + "?insertarDispositivos", datos);
   }
-  actualizarDispositivo(id: string, nombre: string): Observable<any> {
-    const datos = { id: id, nombre: nombre, };
+  actualizarDispositivo(id: string, nombre: string, marca: string, anio: string): Observable<any> {
+    const datos = { id: id, nombre: nombre, marca: marca, anio: anio };
     return this.clienteHttp.post(this.API + "?updateDispositivos", datos);
   }
 
