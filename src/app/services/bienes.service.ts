@@ -39,6 +39,11 @@ export class CommentService {
     const datos = { id: id, nombre: nombre, };
     return this.clienteHttp.post(this.API + "?updateDispositivos", datos);
   }
+
+  eliminarDispositivo(id: string): Observable<any> {
+    const datos = { id: id };
+    return this.clienteHttp.post(this.API + "?eliminarDispositivo", datos);
+  }
   obtenerComentarios(dispositivo: string): Observable<ComentariosI[]> {
     const datos = { dispositivo: dispositivo };
     return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentarios", datos);
