@@ -14,6 +14,10 @@ import { AddBienesComponent } from './bienes/add-bienes/add-bienes.component';
 import { DeleteBienesComponent } from './bienes/delete-bienes/delete-bienes.component';
 import { EditBienesComponent } from './bienes/edit-bienes/edit-bienes.component';
 import { provideHttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Toast } from 'bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,11 +26,16 @@ import { provideHttpClient } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+    
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient()
+    provideHttpClient(),
+    
   ],
   bootstrap: [AppComponent]
 })

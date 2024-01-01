@@ -4,16 +4,19 @@
             Editar dispositivos  
         </span>
         <div class="d-flex">
-          <select #carreraSelect  formControlName="idCar" class="form-select short-input "  (change)="onCarreras($event.target)"  >
+          <select #carreraSelect  class="form-select short-input "  (change)="onCarreras($event.target)"  >
+            <option value="" disabled selected>Selecciona una carrera</option>
             <option *ngFor="let carrera of carreras" [value]="carrera.id">{{carrera.nombre}}</option>
             </select>
             <div *ngIf="laboratorios.length > 0">
-            <select formControlName="idLab" class="form-select short-input short-inpu2 "(change)="onLaboratorios($event.target)">
+            <select  class="form-select short-input short-inpu2 "(change)="onLaboratorios($event.target)">
+              <option value="" disabled selected>Laboratorio</option>
                 <option *ngFor="let laboratorio of laboratorios" [value]="laboratorio.id">{{laboratorio.nombre}}</option>
             </select>
             </div>  
-            <div *ngIf="laboratorios.length > 0">
-            <select formControlName="idC" class="form-select short-input short-inpu3 " id="dispositivos" (change)="onCategoria($event.target)"  >
+            <div *ngIf="categorias.length > 0">
+            <select  class="form-select short-input short-inpu3 " id="dispositivos" (change)="onCategoria($event.target)"  >
+              <option value="" disabled selected>Categoria</option>
               <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</option>
             </select>
           </div>
@@ -25,50 +28,55 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Dispositivos</th>
+              <th scope="col">Acción</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button></td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>twitter</td>
+          <tbody *ngIf="dispositivos.length>0">
+            <tr *ngFor="let dispositivo of dispositivos; let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{dispositivo.nombre}}</td>
+              <td><button [value]="dispositivo.id" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDispositivos(dispositivo)">Editar</button></td>
             </tr>
           </tbody>
         </table>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content" style="background-color: #404143e5;">
-                    <div class="modal-body align-items-center text-center">
-                        <span class="material-symbols-outlined" style="color: white; font-size: 2em;">
-                            delete
-                        </span>
-                    </div>
-                    <div class="row text-center">
-                        <h5 style="color: white;">¿Estás seguro de eliminar este dispositivo?</h5>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" style="background-color: #1c6ad1de; border-color: transparent;">Save changes</button>
-                    </div>
+        <div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-ms">
+              <div class="modal-content " style="background-color: #404143e5;">
+                <div class="modal-header text-center" style="border-color: transparent; padding-top: 6px; padding-bottom: 0; margin-bottom: 0;">
+                  <h5 class="mx-auto" style="color: white;">Agregar dispositivo</h5>
+                  
                 </div>
-            </div>
-        </div>
+                <div class="modal-header d-flex justify-content-center align-items-center text-center" style="border-color: rgb(158, 158, 158);">
+                  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <div >
+                      <button type="button" class="btn btn-secondary">{{selectedCategoria.nombre}}</button>
+                      
+                  </div>
+                  </div>
+                  
+                </div>
+                <div class="modal-body align-items-center text-center">
+                    
+                  <form  [formGroup]="formularioMSG" (ngSubmit)="actualizarDispositivos()" >  
+                  <div class="row "> 
+                     
+                      <div class="mb-3 text-left">
+                        <label for="exampleInputPassword1" class="form-label" style="color: white;">Nombre:</label>
+                        <input formControlName="nomDis" class="form-control form-control-sm" style="border-color: rgb(138, 138, 139);" autocomplete="off">
+                      </div>
+                    
+                  </div>
+                  <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary" style="background-color: #1c6ad1de; border-color: transparent;" >Acutalizar dispositivo</button>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+      </div>
 
     </div>
     

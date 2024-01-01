@@ -88,3 +88,7 @@
     text-align: left; border-color: transparent; background-color: #b9b5b44b;
     color: black;
 }
+.form-control{
+    background-color: #404143e5;    
+    color: white;
+}

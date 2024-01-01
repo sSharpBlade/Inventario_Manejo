@@ -21,6 +21,7 @@ export class CommentService {
     return this.clienteHttp.post<LaboratorioI[]>(this.API + "?laboratoriosU", datos);
   }
 
+
   obtenerCategorias(): Observable<CategoriaI[]> {
     return this.clienteHttp.post<CategoriaI[]>(this.API + "?categorias", '');
   }
@@ -30,6 +31,14 @@ export class CommentService {
     return this.clienteHttp.post(this.API + "?mensaje", datos);
   }
 
+  insertarDispositivo(nombre: string, idCatPer: string,idLabPer: string): Observable<any> {
+    const datos = { nombre: nombre, idCatPer: idCatPer, idLabPer: idLabPer };
+    return this.clienteHttp.post(this.API + "?insertarDispositivos", datos);
+  }
+  actualizarDispositivo(id: string, nombre: string): Observable<any> {
+    const datos = { id: id, nombre: nombre, };
+    return this.clienteHttp.post(this.API + "?updateDispositivos", datos);
+  }
   obtenerComentarios(dispositivo: string): Observable<ComentariosI[]> {
     const datos = { dispositivo: dispositivo };
     return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentarios", datos);
@@ -48,6 +57,7 @@ obtenerLaboratorios(idCarrera: string): Observable<any> {
     const datos = { idCarrera: idCarrera };
     return this.clienteHttp.post(this.API + "?laboratorios", datos);
 }
+
 
 }
 
