@@ -105,6 +105,9 @@ export class AddBienesComponent implements OnInit, AfterViewInit {
 
     // También puedes realizar otras acciones aquí si es necesario
   }
+  onClose(){
+    this.selectedCategoria.id = '';
+  }
   insertarDispositivos(){
     console.log("insertarDispositivos")
     const { nomDis } = this.formularioMSG.value;
@@ -114,7 +117,8 @@ export class AddBienesComponent implements OnInit, AfterViewInit {
           console.log(respuesta);
           //window.location.reload();
           this.toastr.success('Guardado Correctamente', 'Hecho!');
-          this.selectedCategoria.id = '';
+          this.formularioMSG.controls['nomDis'].setValue('');
+          
         } else {
           console.log("No envio mensaje in");
           this.toastr.error('Hello world!', 'Toastr fun!');
