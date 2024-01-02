@@ -23,9 +23,10 @@ const routes: Routes = [
     { path: 'add-lab', component: AddLabComponent },
     { path: 'delete-lab', component: DeleteLabComponent },
   ]},
-  { path: 'principal', component: ContPrincipalComponent },
-  { path: 'lab-car', component: MostrarLabComponent },
-  { path: 'sidebar', component: SidebarUserComponent }
+  { path: 'sidebar', component: SidebarUserComponent, children: [
+    { path: 'principal', component: ContPrincipalComponent },
+    { path: 'lab-car', component: MostrarLabComponent },
+  ] }
 ];
 
 @NgModule({
