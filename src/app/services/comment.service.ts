@@ -8,7 +8,7 @@ import { CategoriaI, ComentariosI, DispositivoI } from './model.interface';
 })
 export class CommentService {
 
-  API: string = 'http://localhost/API_Inventarios/';
+  API: string = 'http://localhost/app_manejo/';
 
   constructor(private clienteHttp: HttpClient) { }
 

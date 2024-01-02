@@ -9,7 +9,7 @@ import { usuario } from './usuarios';
 })
 export class LoginService {
 
-  API: string = 'http://localhost/API_Inventarios/';
+  API: string = 'http://localhost/app_manejo/';
 
   constructor(private clienteHttp: HttpClient) { }
 

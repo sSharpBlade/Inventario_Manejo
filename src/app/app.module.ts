@@ -11,8 +11,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { CommentsAdminComponent } from './pages/comments-admin/comments-admin.component';
 import { UsuComponent } from './pages/usu/usu.component';
-import { LabComponent } from './pages/lab/lab.component';
-import { AdminComponent } from './pages/admin/admin.component';
 import { LaboratorioComponent } from './laboratorios/laboratorios.component';
 import { AddLabComponent } from './laboratorios/add-lab/add-lab.component';
 import { DeleteLabComponent } from './laboratorios/delete-lab/delete-lab.component';
@@ -29,8 +27,6 @@ import { MostrarLabComponent } from './user/principal/mostrar-lab/mostrar-lab.co
     AppComponent,
     LoginComponent,
     UsuComponent,
-    LabComponent,
-    AdminComponent,
     CommentsComponent,
     CommentsAdminComponent,
     AppComponent, 
