@@ -46,9 +46,9 @@ export class LoginComponent implements OnInit {
           if (rol === 'lab') {
             this.router.navigate(['/laboratorio', id]);
           } else if (rol === 'usuario') {
-            this.router.navigate(['/usuario', id]);
+            this.router.navigate(['/sidebar', '']);
           } else if (rol === 'admin') {
-            this.router.navigate(['/admin', id]);
+            this.router.navigate(['/sidebar-user', '']);
           } else {
             this.router.navigate(['']);
           }
