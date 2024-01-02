@@ -3,8 +3,10 @@ export interface carrerasI{
     nom_car: string;
     sem_car: string;
     tit_car: string;
-    est_carr: string;
+    est_car: string;
 }
+    
+
 
 export interface laboratorioI{
     id:string;

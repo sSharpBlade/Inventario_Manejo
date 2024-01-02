@@ -1,1 +1,41 @@
-<p>crear-carreras works!</p>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+<div class="container-principal"> 
+    <div class="card text-center ">
+        <div class="card-header">
+            Administrador 
+        </div>
+        <form method="get" class="p-3" [formGroup]="Formulario" (ngSubmit)="insert()">
+            <div class="mb-3 row">
+                <label  class="col-sm-4 col-form-label text-end">Id carrera: </label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control input-placeholder short-input" id="idCar" name="idCar" required placeholder="Ej: 5" formControlName="id_car" >
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-4 col-form-label text-end">Nombre de la carrera:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control input-placeholder short-input" id="nombreCar" name="nombreCar" required placeholder="Ej: Telecomunicaciones" formControlName="nom_car">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-4 col-form-label text-end">Semestres:</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control input-placeholder short-input" id="semestreCar" name="semestreCar" required placeholder="Ej: 8" formControlName="sem_car">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-4 col-form-label text-end">Titulo que otorga:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control input-placeholder short-input" id="tituloCar" name="tituloCar" required placeholder="Ej: Ing. Telecomunicaciones" formControlName="tit_car">
+                </div>
+            </div>
+                
+            <button type="submit" class="btn"><span class="material-symbols-outlined">save_as</span></button>
+        </form>
+        <div class="card-footer text-body-secondary">
+            GrupoDinamita
+        </div>    
+    </div>
+</div>

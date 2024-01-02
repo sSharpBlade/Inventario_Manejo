@@ -1,0 +1,39 @@
+.container-principal {
+    background-image: url('../../../assets/img/fondo_carrera.jpg'); 
+    background-size: cover;
+    padding: 220px;
+}
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745; 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.card {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.btn:hover {
+    background-color: #218838;
+}
+.btn-E {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-E:hover {
+    background-color: #c82333;
+}
+
+.input-placeholder::placeholder {
+    color: #808080;
+    opacity: 0.7; 
+}
+.short-input {
+    width: 500px;
+  }

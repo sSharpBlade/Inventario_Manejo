@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<div class="container-principal">
+  <div class="card text-center" *ngFor="let car of carrera">
+    <div class="card-header">
+      Administrador  
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ car.nom_car }}</h5>
+      <p class="card-text">ID: {{ car.id_car }}</p>
+      <p class="card-text">SEMESTRES: {{ car.sem_car }}</p>
+      <p class="card-text">TITULO OTOGADO: {{ car.tit_car}}</p>
+      <button type="button" class="btn btn-success" [value]="car.id_car" (click)="eliminar($event.target)">Eliminar</button>
+    </div>
+    <div class="card-footer text-body-secondary">
+      GrupoDinamita
+    </div>
+  </div>
+</div>

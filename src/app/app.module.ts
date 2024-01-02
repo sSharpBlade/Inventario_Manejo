@@ -20,6 +20,8 @@ import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras
 import { SidebarUserComponent } from './user/sidebar-user/sidebar-user.component';
 import { ContPrincipalComponent } from './user/principal/cont-principal/cont-principal.component';
 import { MostrarLabComponent } from './user/principal/mostrar-lab/mostrar-lab.component';
+import { EliminarCarreraComponent } from './carreras/eliminar-carrera/eliminar-carrera.component';
+
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { MostrarLabComponent } from './user/principal/mostrar-lab/mostrar-lab.co
     CommentsComponent,
     CommentsAdminComponent,
     AppComponent, 
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,
+
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent,
+
   ],
   imports: [
     BrowserModule,
