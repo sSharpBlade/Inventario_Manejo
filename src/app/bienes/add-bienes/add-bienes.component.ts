@@ -19,11 +19,11 @@ export class AddBienesComponent implements OnInit, AfterViewInit {
   public selectedCategoria: CategoriaI = { id: "", nombre: "" };
   public categorias: CategoriaI[] = [];
   public carreras: CarrerasI[] = [];
-  public selectedCarrera: CarrerasI = { id: "", nombre: "" };
+  public selectedCarrera: CarrerasI = { id_car: "", nom_car: "", sem_car: "", tit_car: "", est_car: ""};
   public laboratorios: LaboratorioI[] = [];
-  public selectedLaboratorio: LaboratorioI = { id: "", nombre: "", idCarreraPer: "" };
+  public selectedLaboratorio: LaboratorioI = {id:"", nom_lab:"",ubi_lab:"",cap_mes_lab:"",id_car_lab:"",est_lab:""};
   public dispositivos: DispositivoI[] = [];
-  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "", marca: "", anio: ""};
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", marca: "", anio: "",id_cat_per: "",id_lab_per: "",est_dis: ""};
   public formularioMSG: FormGroup;
   public modalElement: any;
 
@@ -51,30 +51,34 @@ export class AddBienesComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.servicioC.obtenerCategorias().subscribe(respuesta => {
       this.categorias = respuesta;
+      console.log(respuesta);
     });
 
     this.servicioC.obtenerCarreras().subscribe(respuesta => {
       this.carreras = respuesta;
+      console.log(respuesta);
+      console.log(this.carreras);
 
   });
   
-  this.formularioMSG.controls['idCar'].setValue('aua'); // Establece el valor inicial
   
   }
   onCategoria(value: any) {
+    
     this.selectedCategoria.id = value.value;
     this.servicioC.obtenerDispositivos(this.labId, this.selectedCategoria.id).subscribe(respuesta => {
       this.dispositivos = respuesta;
     });
   }
   onCarreras(value: any) {
-    this.selectedCarrera.id = value.value;
-    this.servicioC.obtenerLaboratorios2(value.value).subscribe(respuesta => {
+    console.log(this.carreras);
+    this.selectedCarrera.id_car = value.value;
+    console.log(this.selectedCarrera.id_car);
+    this.servicioC.obtenerLaboratorios2(this.selectedCarrera.id_car).subscribe(respuesta => {
       this.laboratorios = respuesta;
       
       console.log('Laboratorios:', this.laboratorios); 
   });
-  
 }
   onLaboratorios(value: any) {
     this.selectedLaboratorio.id = value.value;

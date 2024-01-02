@@ -17,11 +17,11 @@ export class DeleteBienesComponent implements OnInit, AfterViewInit{
   public selectedCategoria: CategoriaI = { id: "", nombre: "" };
   public categorias: CategoriaI[] = [];
   public carreras: CarrerasI[] = [];
-  public selectedCarrera: CarrerasI = { id: "", nombre: "" };
+  public selectedCarrera: CarrerasI = { id_car: "", nom_car: "", sem_car: "", tit_car: "", est_car: ""};
   public laboratorios: LaboratorioI[] = [];
-  public selectedLaboratorio: LaboratorioI = { id: "", nombre: "", idCarreraPer: "" };
+  public selectedLaboratorio: LaboratorioI = {id:"", nom_lab:"",ubi_lab:"",cap_mes_lab:"",id_car_lab:"",est_lab:""}
   public dispositivos: DispositivoI[] = [];
-  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "", marca: "", anio: "" };
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", marca: "", anio: "",id_cat_per: "",id_lab_per: "",est_dis: ""};
   public formularioMSG: FormGroup;
 
   constructor(private  toastr: ToastrService ,private route: ActivatedRoute, private servicioC: CommentService, private router: Router, private formulario: FormBuilder) {
@@ -69,7 +69,7 @@ export class DeleteBienesComponent implements OnInit, AfterViewInit{
     this.laboratorios = [];
     this.dispositivos = [];
     this.categorias = [];
-    this.selectedCarrera.id = value.value;
+    this.selectedCarrera.id_car = value.value;
     this.servicioC.obtenerLaboratorios2(value.value).subscribe(respuesta => {
       this.laboratorios = respuesta;
       console.log('Laboratorios:', this.laboratorios); 
@@ -77,6 +77,7 @@ export class DeleteBienesComponent implements OnInit, AfterViewInit{
   
 }
   onLaboratorios(value: any) {
+    this.categorias = [];
     this.selectedLaboratorio.id = value.value;
     this.servicioC.obtenerCategorias().subscribe(respuesta => {
       this.categorias = respuesta;
@@ -85,7 +86,7 @@ export class DeleteBienesComponent implements OnInit, AfterViewInit{
   onDispositivos(value: DispositivoI) {
     this.selectedDispositivo.id = value.id;
     this.selectedDispositivo.nombre = value.nombre;
-    this.selectedDispositivo.idCategoria = this.selectedCategoria.id;
+    this.selectedDispositivo.id_cat_per = this.selectedCategoria.id;
     this.formularioMSG.controls['nomDis'].setValue(this.selectedDispositivo.nombre);
 
     console.log(this.selectedDispositivo);

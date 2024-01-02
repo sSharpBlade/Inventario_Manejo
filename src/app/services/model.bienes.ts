@@ -6,9 +6,11 @@ export interface CategoriaI {
 export interface DispositivoI {
     id: string;
     nombre: string;
-    idCategoria: string;
     marca: string;
     anio: string;
+    id_lab_per: string;
+    id_cat_per: string;
+    est_dis: string;
 }
 
 export interface ComentariosI {
@@ -19,12 +21,18 @@ export interface ComentariosI {
 }
 
 export interface CarrerasI {
-    id: string;
-    nombre: string;
+    id_car: string;
+    nom_car: string;
+    sem_car: string;
+    tit_car: string;
+    est_car: string;
 }
 
 export interface LaboratorioI {
     id: string;
-    nombre: string;
-    idCarreraPer: string;
+    nom_lab: string;
+    ubi_lab: string;
+    cap_mes_lab: string;
+    id_car_lab: string;
+    est_lab: string;
 }

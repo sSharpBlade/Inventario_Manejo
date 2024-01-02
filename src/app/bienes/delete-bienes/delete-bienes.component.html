@@ -6,12 +6,12 @@
       <div class="d-flex">
         <select #carreraSelect  class="form-select short-input "  (change)="onCarreras($event.target)"  >
           <option value="" disabled selected>Selecciona una carrera</option>
-          <option *ngFor="let carrera of carreras" [value]="carrera.id">{{carrera.nombre}}</option>
+          <option *ngFor="let carrera of carreras" [value]="carrera.id_car">{{carrera.nom_car}}</option>
           </select>
           <div *ngIf="laboratorios.length > 0">
           <select  class="form-select short-input short-inpu2 "(change)="onLaboratorios($event.target)">
             <option value="" disabled selected>Laboratorio</option>
-              <option *ngFor="let laboratorio of laboratorios" [value]="laboratorio.id">{{laboratorio.nombre}}</option>
+              <option *ngFor="let laboratorio of laboratorios" [value]="laboratorio.id">{{laboratorio.nom_lab}}</option>
           </select>
           </div>  
           <div *ngIf="categorias.length > 0">

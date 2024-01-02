@@ -8,7 +8,7 @@
           <select class="form-select short-input  " id="carreras" (change)="onCarreras($event.target)"  >
             <option value="" disabled selected>Selecciona una carrera</option>
 
-            <option *ngFor="let carrera of carreras" [value]="carrera.id">{{carrera.nombre}}</option>
+            <option *ngFor="let carrera of carreras" [value]="carrera.id_car">{{carrera.nom_car}}</option>
             </select>
             
         </div>
@@ -22,6 +22,8 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Laboratorios</th>
+            <th scope="col">Ubicación</th>
+            <th scope="col">Capacidad</th>
             <th scope="col">Acción</th>
             
           </tr>
@@ -30,7 +32,9 @@
           
           <tr *ngFor="let laboratorio of laboratorios; let i = index">
             <th scope="row">{{i+1}}</th>
-            <td>{{laboratorio.nombre}}</td>
+            <td>{{laboratorio.nom_lab}}</td>
+            <td>{{laboratorio.ubi_lab}}</td>
+            <td>{{laboratorio.cap_mes_lab}}</td>
             <td><button [value]="laboratorio.id" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLaboratorios($event.target)">Añadir</button></td>
           </tr>
         

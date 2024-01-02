@@ -8,16 +8,16 @@ import { CarrerasI, CategoriaI, ComentariosI, DispositivoI, LaboratorioI } from 
 })
 export class CommentService {
 
-  API: string = 'http://localhost/InventarioManejo/';
+  API: string = 'http://localhost/app_manejo/';
 
   constructor(private clienteHttp: HttpClient) { }
 
-  obtenerDispositivos(idL: string, idC: string): Observable<DispositivoI[]> {
-    const datos = { idL: idL, idC: idC };
-    return this.clienteHttp.post<DispositivoI[]>(this.API + "?componente", datos);
+  obtenerDispositivos(id_lab_per: string, id_cat_per: string): Observable<DispositivoI[]> {
+    const datos = { id_lab_per: id_lab_per, id_cat_per: id_cat_per };
+    return this.clienteHttp.post<DispositivoI[]>(this.API + "?componenteU", datos);
   }
-  obtenerLaboratorios2(idCar: string): Observable<LaboratorioI[]> {
-    const datos = { idCar: idCar };
+  obtenerLaboratorios2(id_car_lab: string): Observable<LaboratorioI[]> {
+    const datos = { id_car_lab: id_car_lab };
     return this.clienteHttp.post<LaboratorioI[]>(this.API + "?laboratoriosU", datos);
   }
 
