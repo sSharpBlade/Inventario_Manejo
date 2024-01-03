@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoboratoriosServiceService } from '../../../services/loboratorios.service';
 import { carrerasI } from '../../../services/model.laboratorios';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cont-principal',
@@ -10,7 +11,7 @@ import { carrerasI } from '../../../services/model.laboratorios';
 export class ContPrincipalComponent {
   public car:carrerasI[] = [];
 
-  constructor( private LoboratoriosService: LoboratoriosServiceService) {} 
+  constructor( private router: Router,private LoboratoriosService: LoboratoriosServiceService) {} 
 
   ngOnInit(): void {
     this.LoboratoriosService.obtenerTodasLasCarreras().subscribe(
@@ -23,5 +24,8 @@ export class ContPrincipalComponent {
   verLaboratorios(idCarrera: number) {
     console.log(`Ver laboratorios de la carrera con ID ${idCarrera}`);
   }
-
+  callComment(value: any) {
+    console.log(value.value);
+    this.router.navigate(['/sidebar/lab-user', value.value]);
+  }
 }

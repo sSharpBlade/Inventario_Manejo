@@ -26,6 +26,7 @@ import { EditBienesComponent } from './bienes/edit-bienes/edit-bienes.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Toast } from 'bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { LabUserComponent } from './user/lab-user/lab-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { ToastrModule } from 'ngx-toastr';
     CommentsComponent,
     CommentsAdminComponent,
     AppComponent, 
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, 
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, LabUserComponent, 
 
   ],
   imports: [
@@ -48,9 +49,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot()
   ],
   providers: [
-    provideClientHydration(),
     provideHttpClient()
-
   ],
   bootstrap: [AppComponent]
 })

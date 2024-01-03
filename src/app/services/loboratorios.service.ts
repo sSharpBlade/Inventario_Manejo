@@ -37,8 +37,7 @@ export class LoboratoriosServiceService {
   }
   obtenerLaboratorios2(idCar: string): Observable<laboratorioI[]> {
     const datos = { idCar: idCar };
-    return this.http.post<laboratorioI[]>(this.API + "?laboratoriosU", datos);
-  }
+    return this.http.post<laboratorioI[]>(this.API + "?laboratoriosC",datos);}
 
 
 }

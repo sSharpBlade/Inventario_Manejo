@@ -18,6 +18,7 @@ import { SidebarUserComponent } from './user/sidebar-user/sidebar-user.component
 import { CarrerasComponent } from './carreras/carreras.component';
 import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras.component';
 import { EliminarCarreraComponent } from './carreras/eliminar-carrera/eliminar-carrera.component';
+import { LabUserComponent } from './user/lab-user/lab-user.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -31,21 +32,26 @@ const routes: Routes = [
       { path: 'nav-car', component: CarrerasComponent },
       { path: 'crear-car', component: CrearCarrerasComponent },
       { path: 'eliminar-car', component: EliminarCarreraComponent },
-      { path: 'commentAdmin/:id', component: CommentsAdminComponent }
+      { path: 'commentAdmin/:id', component: CommentsAdminComponent },
+      {path: 'nav-bienes', component: BienesComponent, children: [
+        {path: 'add-bienes', component: AddBienesComponent},
+        {path: 'edit-bienes', component: EditBienesComponent},
+        {path: 'delete-bienes', component: DeleteBienesComponent},
+        {path: '', component: AddBienesComponent}
+        ]},
+      
     ]
   },
   {
     path: 'sidebar', component: SidebarUserComponent, children: [
       { path: 'principal', component: ContPrincipalComponent },
       { path: 'lab-car', component: MostrarLabComponent },
-      { path: 'comment/:id', component: CommentsComponent }
+      {path: 'lab-user/:id', component: LabUserComponent },
+      { path: 'comment/:id', component: CommentsComponent },
+
+     
     ]
   },
-  {path: 'nav-bienes', component: BienesComponent, children: [
-    {path: 'add-bienes', component: AddBienesComponent},
-  {path: 'edit-bienes', component: EditBienesComponent},
-  {path: 'delete-bienes', component: DeleteBienesComponent},
-  ]},
   
   { path: 'nav-lab', component: LaboratorioComponent },
   { path: 'delete-lab', component: DeleteLabComponent },
