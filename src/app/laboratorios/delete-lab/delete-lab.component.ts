@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoboratoriosServiceService } from '../../services/loboratorios.service';
 import { laboratorioI } from '../../services/model.laboratorios';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-lab',
@@ -8,28 +9,32 @@ import { laboratorioI } from '../../services/model.laboratorios';
   styleUrl: './delete-lab.component.css'
 })
 export class DeleteLabComponent {
- public labo: laboratorioI[] = [];
+  public labo: laboratorioI[] = [];
 
-  constructor(private loboratoriosService: LoboratoriosServiceService) {}
-  
-    ngOnInit(): void {
-      this.loboratoriosService.obtenerLaboratorios().subscribe(
-        data => {
-          this.labo = data;
-        },
-      );
-    }
+  constructor(private loboratoriosService: LoboratoriosServiceService, private router: Router) { }
 
-    eliminar(value: any) {
-      this.loboratoriosService.eliminarLaboratorio(value.value).subscribe(
-        res => {
-          this.loboratoriosService.obtenerLaboratorios().subscribe(
-            data => {
-              this.labo = data;
-            },
-          );
-        }
-      );
-    }
-    
+  ngOnInit(): void {
+    this.loboratoriosService.obtenerLaboratorios().subscribe(
+      data => {
+        this.labo = data;
+      },
+    );
   }
+
+  eliminar(value: any) {
+    this.loboratoriosService.eliminarLaboratorio(value.value).subscribe(
+      res => {
+        this.loboratoriosService.obtenerLaboratorios().subscribe(
+          data => {
+            this.labo = data;
+          },
+        );
+      }
+    );
+  }
+
+  callComment(value: any) {
+    this.router.navigate(['/sidebar-user/commentAdmin', value.value]);
+  }
+
+}

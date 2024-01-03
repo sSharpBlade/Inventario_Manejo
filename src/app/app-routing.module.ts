@@ -18,27 +18,31 @@ import { EliminarCarreraComponent } from './carreras/eliminar-carrera/eliminar-c
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'usuario/:id', component: UsuComponent },
-  { path: 'comment/:id', component: CommentsComponent },
-  { path: 'commentAdmin/:id', component: CommentsAdminComponent },
 
-  { path: 'sidebar-user', component: SidebarComponent, children: [
-    { path: 'nav-lab', component: LaboratorioComponent },
-    { path: 'add-lab', component: AddLabComponent },
-    { path: 'delete-lab', component: DeleteLabComponent },
-    { path: 'nav-car', component: CarrerasComponent },
-    { path: 'crear-car', component: CrearCarrerasComponent },
-    { path: 'eliminar-car', component: EliminarCarreraComponent }
-  ]},
-  { path: 'sidebar', component: SidebarUserComponent, children: [
-    { path: 'principal', component: ContPrincipalComponent },
-    { path: 'lab-car', component: MostrarLabComponent },
-  ] },
-  {path: 'nav-lab', component: LaboratorioComponent},
-  {path: 'delete-lab', component: DeleteLabComponent},
-  {path: 'add-lab', component: AddLabComponent},
-  {path: 'sidebar-user', component: SidebarComponent},
-  {path: 'principal', component: ContPrincipalComponent },
-
+  {
+    path: 'sidebar-user', component: SidebarComponent, children: [
+      { path: 'nav-lab', component: LaboratorioComponent },
+      { path: 'add-lab', component: AddLabComponent },
+      { path: 'delete-lab', component: DeleteLabComponent },
+      { path: 'nav-car', component: CarrerasComponent },
+      { path: 'crear-car', component: CrearCarrerasComponent },
+      { path: 'eliminar-car', component: EliminarCarreraComponent },
+      { path: 'commentAdmin/:id', component: CommentsAdminComponent }
+    ]
+  },
+  {
+    path: 'sidebar', component: SidebarUserComponent, children: [
+      { path: 'principal', component: ContPrincipalComponent },
+      { path: 'lab-car', component: MostrarLabComponent },
+      { path: 'comment/:id', component: CommentsComponent }
+    ]
+  },
+  { path: 'nav-lab', component: LaboratorioComponent },
+  { path: 'delete-lab', component: DeleteLabComponent },
+  { path: 'add-lab', component: AddLabComponent },
+  { path: 'sidebar-user', component: SidebarComponent },
+  { path: 'principal', component: ContPrincipalComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 
 ];
 
