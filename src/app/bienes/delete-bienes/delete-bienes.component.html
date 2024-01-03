@@ -1,0 +1,71 @@
+<div class="card text-left h-100" style="border-color: transparent;" >
+  <div class="card-header d-flex justify-content-between align-items-center" style="border-color: transparent; border-width: 0;">
+      <span> 
+          Eliminar dispositivos  
+      </span>
+      <div class="d-flex">
+        <select #carreraSelect  class="form-select short-input "  (change)="onCarreras($event.target)"  >
+          <option value="" disabled selected>Selecciona una carrera</option>
+          <option *ngFor="let carrera of carreras" [value]="carrera.id_car">{{carrera.nom_car}}</option>
+          </select>
+          <div *ngIf="laboratorios.length > 0">
+          <select  class="form-select short-input short-inpu2 "(change)="onLaboratorios($event.target)">
+            <option value="" disabled selected>Laboratorio</option>
+              <option *ngFor="let laboratorio of laboratorios" [value]="laboratorio.id">{{laboratorio.nom_lab}}</option>
+          </select>
+          </div>  
+          <div *ngIf="categorias.length > 0">
+          <select  class="form-select short-input short-inpu3 " id="dispositivos" (change)="onCategoria($event.target)"  >
+            <option value="" disabled selected>Categoria</option>
+            <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</option>
+          </select>
+        </div>
+      </div>
+  </div>
+  <div class="card-body">
+      <p class="card-text ct2" style="padding-bottom: 0px; margin-bottom: 1px;">Dispositivos</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dispositivos</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Año</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="dispositivos.length>0">
+          <tr *ngFor="let dispositivo of dispositivos; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{dispositivo.nombre}}</td>
+            <td>{{dispositivo.marca}}</td>
+            <td>{{dispositivo.anio}}</td>
+            <td><button [value]="dispositivo.id" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDispositivos(dispositivo)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+          <div class="modal-content" style="background-color: #404143e5;">
+            <div class="row">
+                <div class="modal-body align-items-center text-center">
+                    <span class="material-symbols-outlined" style="color: white;font-size: 2em;">
+                        delete
+                        </span>
+            </div>
+            <div class="row text-center">
+                <h5 style="color: white;">¿Estas seguro de eliminar este dispositivo?</h5>
+            </div>
+                
+            </div>
+            <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="background-color: #1c6ad1de; border-color: transparent;" (click)="eliminarDispositivo()">Eliminar Dispositivo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+</div>

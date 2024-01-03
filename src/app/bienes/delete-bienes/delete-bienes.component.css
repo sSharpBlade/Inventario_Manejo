@@ -1,0 +1,90 @@
+
+.container-principal {
+    padding-inline: 400px;
+    padding-block: 225px;
+}
+/*.container-principal {
+    background-image: radial-gradient(circle at -1.68% 59.11%, #60c9c8 0, #5cc8d0 5%, #5bc8d7 10%, #5dc7de 15%, #61c5e4 20%, #68c4e9 25%, #71c2ed 30%, #7bc0f0 35%, #86bef2 40%, #91bcf2 45%, #9db9f2 50%, #a9b6f1 55%, #b4b3ee 60%, #beb1ea 65%, #c8aee6 70%, #d1abe0 75%, #daa9da 80%, #e1a7d3 85%, #e7a5cc 90%, #eca4c4 95%, #efa3bc 100%);
+    background-size: cover;
+    /* padding: 225px; 
+    padding: 255px;
+
+}
+*/
+
+.btn-A{
+    display: inline-block;
+    padding: 10px 20px; 
+    background-color: #28a745; 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.card {
+    background-color: rgba(255, 255, 255, 0.7);
+    
+    
+    
+}
+.btn-A:hover {
+    background-color: #218838;
+}
+.btn-E {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-E:hover {
+    background-color: #c82333;
+}
+
+.btn2 {
+    text-align: left; border-color: transparent; background-color: transparent;
+    color: black;
+}
+.btn2:hover {
+    background-color: #b9b5b44b;
+    
+}  
+
+.ct2{
+    
+    color: rgba(138, 136, 136, 0.966);
+    font-family: 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+}
+
+.short-input {
+    height: 35px;
+    width: 200px; /* Ajusta la altura según tus necesidades */
+    font-size: 15px; /* Ajusta el tamaño de la fuente según tus necesidades */
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(102, 102, 102);
+}
+
+.short-inpu2 {
+    height: 35px;
+    width: 110px; /* Ajusta la altura según tus necesidades */
+    font-size: 15px; /* Ajusta el tamaño de la fuente según tus necesidades */
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(102, 102, 102);
+}
+
+.short-inpu3 {
+    height: 35px;
+    width: 90px; /* Ajusta la altura según tus necesidades */
+    font-size: 15px; /* Ajusta el tamaño de la fuente según tus necesidades */
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(102, 102, 102);
+}
+.btn2p {
+    text-align: left; border-color: transparent; background-color: #b9b5b44b;
+    color: black;
+}

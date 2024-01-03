@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -21,8 +19,13 @@ import { SidebarUserComponent } from './user/sidebar-user/sidebar-user.component
 import { ContPrincipalComponent } from './user/principal/cont-principal/cont-principal.component';
 import { MostrarLabComponent } from './user/principal/mostrar-lab/mostrar-lab.component';
 import { EliminarCarreraComponent } from './carreras/eliminar-carrera/eliminar-carrera.component';
-
-
+import { BienesComponent } from './bienes/bienes.component';
+import { AddBienesComponent } from './bienes/add-bienes/add-bienes.component';
+import { DeleteBienesComponent } from './bienes/delete-bienes/delete-bienes.component';
+import { EditBienesComponent } from './bienes/edit-bienes/edit-bienes.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Toast } from 'bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -32,8 +35,7 @@ import { EliminarCarreraComponent } from './carreras/eliminar-carrera/eliminar-c
     CommentsComponent,
     CommentsAdminComponent,
     AppComponent, 
-
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent,
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, 
 
   ],
   imports: [
@@ -41,10 +43,14 @@ import { EliminarCarreraComponent } from './carreras/eliminar-carrera/eliminar-c
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
+    provideClientHydration(),
     provideHttpClient()
+
   ],
   bootstrap: [AppComponent]
 })
