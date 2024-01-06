@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
           const rol = respuesta.rol;
           console.log(`Usuario autenticado. ID: ${id}, Rol: ${rol}`);
           if (rol === 'lab') {
-            this.router.navigate(['/laboratorio']);
+            this.router.navigate(['/sidebar-user']);
           } else if (rol === 'usuario') {
             this.router.navigate(['/sidebar']);
           } else if (rol === 'admin') {
