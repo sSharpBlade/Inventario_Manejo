@@ -20,19 +20,19 @@ export class CommentsAdminComponent {
   public msg: string = '';
   public formularioMSG: FormGroup;
 
-  constructor(private route: ActivatedRoute, private servicioC: CommentService, private router: Router, private formulario: FormBuilder) {
+  constructor(private route: ActivatedRoute, private servicioC: CommentService, private formulario: FormBuilder) {
     this.formularioMSG = this.formulario.group({
       idC: [""],
       idD: [""],
       idM: [""]
     });
-  }
-
-  ngOnInit(): void {
 
     this.route.params.subscribe(params => {
       this.usuId = params['id'];
     });
+  }
+
+  ngOnInit(): void {
 
     this.servicioC.obtenerComentarios().subscribe(respuesta => {
       if (respuesta.length > 0) {
@@ -53,13 +53,5 @@ export class CommentsAdminComponent {
       window.location.reload();
     });
   }
-
-  /* revisar(value: any) {
-    this.servicioC.cambiarEstado(value.value).subscribe(
-      res => {
-        window.location.reload();
-      }
-    );
-  } */
 
 }

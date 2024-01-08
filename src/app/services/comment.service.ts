@@ -30,9 +30,14 @@ export class CommentService {
     return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentarios", '');
   }
 
+  obtenerComentariosMe(tecnico: string): Observable<ComentariosI[]> {
+    const valor = { tecnico: tecnico };
+    return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentariosMe", valor);
+  }
+
   cambiarEstado(comentario: string): Observable<any> {
-    const valor = { comentario: comentario };
-    return this.clienteHttp.post(this.API + "?modificar", valor);
+    const valorC = { comentario: comentario };
+    return this.clienteHttp.post(this.API + "?modificar", valorC);
   }
 
   eliminar(comentario: string): Observable<any> {

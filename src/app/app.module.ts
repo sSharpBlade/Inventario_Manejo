@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Toast } from 'bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { LabUserComponent } from './user/lab-user/lab-user.component';
+import { TareasComponent } from './pages/tareas/tareas.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { LabUserComponent } from './user/lab-user/lab-user.component';
     CommentsComponent,
     CommentsAdminComponent,
     AppComponent, 
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, LabUserComponent, 
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, LabUserComponent, TareasComponent, 
 
   ],
   imports: [

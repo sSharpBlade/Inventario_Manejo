@@ -1,0 +1,21 @@
+<app-comments></app-comments>
+
+<div class="container-principal p-4" style="display: flex;
+justify-content: center;
+align-items: center; flex-direction: column;">
+    <div class="card text-center mb-4" *ngFor="let com of comentarios" style="width: 550px;">
+        <div class="card-body">
+            <p class="card-text">Descripción:</p>
+            <h5 class="card-text">{{ com.comentario }}</h5>
+            <p class="card-text">Laboratorio:</p>
+            <h5 class="card-text">{{ com.nom_lab }}</h5>
+            <p class="card-text">Categoría:</p>
+            <h5 class="card-text">{{ com.nom_cat }}</h5>
+            <p class="card-text">Dispositivo:</p>
+            <h5 class="card-text">{{ com.nombre_dis }}</h5>
+            <div class="card-footer text-body-secondary">
+                <button class="btn btn-info" (click)="revisar(com.id)">Revisado</button>
+            </div>
+        </div>
+    </div>
+</div>
