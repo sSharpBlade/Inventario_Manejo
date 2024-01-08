@@ -7,6 +7,7 @@ export interface DispositivoI {
     id: string;
     nombre: string;
     idCategoria: string;
+    nom_lab: string;
 }
 
 export interface ComentariosI {

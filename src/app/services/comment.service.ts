@@ -12,8 +12,8 @@ export class CommentService {
 
   constructor(private clienteHttp: HttpClient) { }
 
-  obtenerDispositivos(idL: string, idC: string): Observable<DispositivoI[]> {
-    const datos = { idL: idL, idC: idC };
+  obtenerDispositivos(idC: string): Observable<DispositivoI[]> {
+    const datos = { idC: idC };
     return this.clienteHttp.post<DispositivoI[]>(this.API + "?componente", datos);
   }
 

@@ -12,7 +12,7 @@ import { CommentService } from '../../services/comment.service';
 export class CommentsAdminComponent {
   labId: any;
   public selectedCategoria: CategoriaI = { id: "", nombre: "" };
-  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "", nom_lab: "" };
   public selectedComentario: ComentariosI = { id: "", comentario: "", idDispositivo: "", estado: 0 };
   public categorias: CategoriaI[] = [];
   public dispositivos: DispositivoI[] = [];
@@ -42,7 +42,7 @@ export class CommentsAdminComponent {
 
   onCategoria(value: any) {
     this.selectedCategoria.id = value.value;
-    this.servicioC.obtenerDispositivos(this.labId, this.selectedCategoria.id).subscribe(respuesta => {
+    this.servicioC.obtenerDispositivos(this.selectedCategoria.id).subscribe(respuesta => {
       this.dispositivos = respuesta;
     });
   }
