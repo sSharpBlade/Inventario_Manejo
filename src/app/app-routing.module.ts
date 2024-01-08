@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'usuario/:id', component: UsuComponent },
 
   {
-    path: 'sidebar-user', component: SidebarComponent, children: [
+    path: 'sidebar-user/:id', component: SidebarComponent, children: [
       { path: 'nav-lab', component: LaboratorioComponent },
       { path: 'add-lab', component: AddLabComponent },
       { path: 'delete-lab', component: DeleteLabComponent },
@@ -33,26 +33,28 @@ const routes: Routes = [
       { path: 'crear-car', component: CrearCarrerasComponent },
       { path: 'eliminar-car', component: EliminarCarreraComponent },
       { path: 'commentAdmin/:id', component: CommentsAdminComponent },
-      {path: 'nav-bienes', component: BienesComponent, children: [
-        {path: 'add-bienes', component: AddBienesComponent},
-        {path: 'edit-bienes', component: EditBienesComponent},
-        {path: 'delete-bienes', component: DeleteBienesComponent},
-        {path: '', component: AddBienesComponent}
-        ]},
-      
+      {
+        path: 'nav-bienes', component: BienesComponent, children: [
+          { path: 'add-bienes', component: AddBienesComponent },
+          { path: 'edit-bienes', component: EditBienesComponent },
+          { path: 'delete-bienes', component: DeleteBienesComponent },
+          { path: '', component: AddBienesComponent }
+        ]
+      },
+
     ]
   },
   {
     path: 'sidebar', component: SidebarUserComponent, children: [
       { path: 'principal', component: ContPrincipalComponent },
       { path: 'lab-car', component: MostrarLabComponent },
-      {path: 'lab-user/:id', component: LabUserComponent },
+      { path: 'lab-user/:id', component: LabUserComponent },
       { path: 'comment/:id', component: CommentsComponent },
 
-     
+
     ]
   },
-  
+
   { path: 'nav-lab', component: LaboratorioComponent },
   { path: 'delete-lab', component: DeleteLabComponent },
   { path: 'add-lab', component: AddLabComponent },

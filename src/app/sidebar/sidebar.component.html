@@ -3,12 +3,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
 
 <nav class="navbar  border-bottom border-body">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink=""><img src="./../../assets/img/logo_de_admin.png" style="width: 80px; height: 70px;"> </a>
-       <a class="navbar-brand" routerLink="/sidebar-user/nav-car/">CARRERAS</a>
-      <a class="navbar-brand" routerLink="/sidebar-user/nav-lab/">LABORATORIOS</a>
-      <a class="navbar-brand" routerLink="/sidebar-user/nav-bienes/">BIENES</a>
-
-    </div>
-  </nav>
-  <router-outlet></router-outlet>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink=""><img src="./../../assets/img/logo_de_admin.png"
+        style="width: 80px; height: 70px;"> </a>
+    <a class="navbar-brand" routerLink="/sidebar-user/{{usuId}}/nav-car/">CARRERAS</a>
+    <a class="navbar-brand" routerLink="/sidebar-user/{{usuId}}/nav-lab/">LABORATORIOS</a>
+    <a class="navbar-brand" routerLink="/sidebar-user/{{usuId}}/nav-bienes/">BIENES</a>
+    <a class="navbar-brand" routerLink="/sidebar-user/{{usuId}}/commentAdmin/{{usuId}}">Comentarios</a>
+    <a class="navbar-brand" routerLink="/sidebar-user/{{usuId}}/nav-bienes/">Tareas</a>
+  </div>
+</nav>
+<router-outlet></router-outlet>

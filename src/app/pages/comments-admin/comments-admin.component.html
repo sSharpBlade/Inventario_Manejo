@@ -1,45 +1,22 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+<app-comments></app-comments>
 
-<div class="container">
-    <h2>Estoy en el lab: {{labId}}</h2>
-    <div class="col-12">
-        <form [formGroup]="formularioMSG">
-            <div>
-                <label class="form-label">Categoría:</label>
-                <select formControlName="idC" class="form-select form-select-lg mb-3"
-                    (change)="onCategoria($event.target)">
-                    <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</option>
-                </select>
+<div class="container-principal p-4" style="display: flex;
+justify-content: center;
+align-items: center; flex-direction: column;">
+    <div class="card text-center mb-4" *ngFor="let com of comentarios" style="width: 550px;">
+        <div class="card-body">
+            <p class="card-text">Descripción:</p>
+            <h5 class="card-text">{{ com.comentario }}</h5>
+            <p class="card-text">Laboratorio:</p>
+            <h5 class="card-text">{{ com.nom_lab }}</h5>
+            <p class="card-text">Categoría:</p>
+            <h5 class="card-text">{{ com.nom_cat }}</h5>
+            <p class="card-text">Dispositivo:</p>
+            <h5 class="card-text">{{ com.nombre_dis }}</h5>
+            <div class="card-footer text-body-secondary">
+                <button class="btn btn-danger m-3" (click)="eliminar(com.id)">Eliminar</button>
+                <button class="btn btn-info" (click)="asignarme(com.id)">Asignarme</button>
             </div>
-
-            <div *ngIf="dispositivos.length > 0">
-                <label class="form-label">Dispositivos:</label>
-                <select formControlName="idD" class="form-select form-select-lg"
-                    (change)="getComments($event.target)">
-                    <option *ngFor="let disp of dispositivos" [value]="disp.id">{{disp.nombre}}</option>
-                </select>
-            </div>
-            <br>
-            <div *ngIf="selectedDispositivo.id !== ''">
-                <label class="form-label">Comentarios:</label>
-                <br>
-                <table class="table table-striped table-hover">
-                    <tbody>
-                        <tr *ngFor="let com of comentarios">
-                            <td>{{com.idDispositivo}}</td>
-                            <td>{{com.comentario}}</td>
-                            <td>
-                                <button type="button" class="btn btn-success" [value]="com.id" (click)="revisar($event.target)">Revisado</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </form>
-
+        </div>
     </div>
 </div>

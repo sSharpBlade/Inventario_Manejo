@@ -26,14 +26,23 @@ export class CommentService {
     return this.clienteHttp.post(this.API + "?mensaje", datos);
   }
 
-  obtenerComentarios(dispositivo: string): Observable<ComentariosI[]> {
-    const datos = { dispositivo: dispositivo };
-    return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentarios", datos);
+  obtenerComentarios(): Observable<ComentariosI[]> {
+    return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentarios", '');
   }
 
   cambiarEstado(comentario: string): Observable<any> {
     const valor = { comentario: comentario };
     return this.clienteHttp.post(this.API + "?modificar", valor);
+  }
+
+  eliminar(comentario: string): Observable<any> {
+    const valor = { comentario: comentario };
+    return this.clienteHttp.post(this.API + "?eliminarComentario", valor);
+  }
+
+  asignarTarea(comentario: string, tecnico: string): Observable<any> {
+    const datos = { comentario: comentario, tecnico: tecnico };
+    return this.clienteHttp.post(this.API + "?asignarme", datos);
   }
 
 }
