@@ -63,6 +63,14 @@ obtenerLaboratorios(idCarrera: string): Observable<any> {
     return this.clienteHttp.post(this.API + "?laboratorios", datos);
 }
 
+obtenerLaboratoriosS(): Observable<LaboratorioI[]> {
+  return this.clienteHttp.post<LaboratorioI[]>(this.API + "?laboratoriosCreados",'');
+}
+
+obtenerTodosDispositivos(): Observable<DispositivoI[]> {
+  return this.clienteHttp.post<DispositivoI[]>(this.API + "?dispositivos",'');
+
+}
 
 }
 

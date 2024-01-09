@@ -40,7 +40,7 @@
               <td>{{dispositivo.nombre}}</td>
               <td>{{dispositivo.marca}}</td>
               <td>{{dispositivo.anio}}</td>
-              <td><button [value]="dispositivo.id" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDispositivos(dispositivo)">Editar</button></td>
+              <td ><button [value]="dispositivo.id" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onDispositivos(dispositivo)">Editar</button> <button [value]="dispositivo.id" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onDispositivos(dispositivo)">Eliminar</button></td>
             </tr>
           </tbody>
         </table>
@@ -84,6 +84,28 @@
               </div>
           </div>
       </div>
+      </div>
+
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+          <div class="modal-content" style="background-color: #404143e5;">
+            <div class="row">
+                <div class="modal-body align-items-center text-center">
+                    <span class="material-symbols-outlined" style="color: white;font-size: 2em;">
+                        delete
+                        </span>
+            </div>
+            <div class="row text-center">
+                <h5 style="color: white;">¿Estas seguro de eliminar este dispositivo?</h5>
+            </div>
+                
+            </div>
+            <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="background-color: #1c6ad1de; border-color: transparent;" (click)="eliminarDispositivo()">Eliminar Dispositivo</button>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>

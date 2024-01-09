@@ -51,6 +51,13 @@ export class EditBienesComponent implements OnInit, AfterViewInit{
       this.carreras = respuesta;
 
   });
+  this.servicioC.obtenerLaboratoriosS().subscribe(respuesta => {
+    this.laboratorios = respuesta;
+    this.servicioC.obtenerTodosDispositivos().subscribe(respuesta => {
+      this.dispositivos = respuesta;
+      console.log(this.dispositivos);
+    });
+ });
   
   }
   onCategoria(value: any) {
@@ -127,6 +134,28 @@ export class EditBienesComponent implements OnInit, AfterViewInit{
     } else {
       this.toastr.error('Llena los campos', 'Error!');
       console.log("No envio mensaje");
+    }
+  }
+
+  eliminarDispositivo(){
+    console.log("eliminarDispositivo");
+    if(this.selectedDispositivo.id!=''){
+      this.servicioC.eliminarDispositivo(this.selectedDispositivo.id).subscribe(respuesta => {
+        if (respuesta && respuesta.success) {
+          console.log(respuesta);
+          //window.location.reload();
+          this.toastr.success('Eliminado Correctamente', 'Hecho!');
+          this.selectedDispositivo.nombre = '';
+          this.dispositivos = [];
+          this.servicioC.obtenerDispositivos(this.selectedLaboratorio.id, this.selectedCategoria.id).subscribe(respuesta => {
+            this.dispositivos = respuesta;
+          });
+          
+        } else {
+          console.log("No envio mensaje in");
+          this.toastr.error('No se pudo eliminar', 'Error!');
+        }
+      });
     }
   }
 }

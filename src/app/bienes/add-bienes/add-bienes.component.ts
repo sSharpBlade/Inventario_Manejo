@@ -60,6 +60,11 @@ export class AddBienesComponent implements OnInit, AfterViewInit {
       console.log(this.carreras);
 
   });
+  this.servicioC.obtenerLaboratoriosS().subscribe(respuesta => {
+    this.laboratorios = respuesta;
+    console.log(respuesta);
+    console.log(this.laboratorios);
+ });
   
   
   }
