@@ -1,20 +1,25 @@
-.container-principal {
-    background-image: url('../../../assets/img/fondo_actualizar.png'); 
+body {
+    margin: 0;
+    padding: 0; 
     background-size: cover;
+    background-position: center;
+  }
+  
+  .container-principal {
     padding: 62px;
-}
-
-.card {
+  }
+  
+  .card {
     background-color: rgba(255, 255, 255, 0.753);
     width: 800px;
     max-height: 650px;
-    overflow-y: auto; 
-    margin: auto; 
+    overflow-y: auto;
+    margin: auto;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.btn-E {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-E {
     display: inline-block;
     padding: 10px 20px;
     background-color: #ff0019;
@@ -22,13 +27,31 @@
     text-decoration: none;
     border-radius: 5px;
     margin-left: auto;
-}
-
-.btn-E:hover {
+  }
+  
+  .btn-E:hover {
     background-color: #9d0000;
-}
-
-.input-placeholder::placeholder {
+  }
+  
+  .input-placeholder::placeholder {
     color: #d39494;
-    opacity: 0.7; 
-}
+    opacity: 0.7;
+  }
+
+  .btn-A {
+    display: block;
+    margin: 10px 0px 60px 1100px; /* Margen superior, derecho, inferior, izquierdo */
+    padding: 8px 12px;
+    max-width: 400px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .btn-A:hover {
+    background-color: #0056b3; 
+  }
+  
+  
