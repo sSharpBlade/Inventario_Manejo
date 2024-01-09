@@ -1,11 +1,10 @@
 <div class="container-principal">
     <div class="card text-center">
       <div class="card-header">
-        AQUI SE PRESENTARAN TODAS LAS CARRERAS ACTUALMENTE
+        ELIJE DE QUE FACULTAD NECESITAS VER ALGUN TIPO DE INFORMACION
       </div>
       <div class="card-body" *ngFor="let carrera of car">
         <h5 class="card-title">{{ carrera.nom_car }}</h5>
-        <p class="card-text">ID {{ carrera.id_car }}</p>
         <button [value]="carrera.id_car" class="btn-A btn" (click)="callComment($event.target)">Ver Laboratorios</button>
       </div>
       <div class="card-footer text-body-secondary">
