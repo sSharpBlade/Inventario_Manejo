@@ -6,7 +6,7 @@
         <div class="card-header">
             Administrador  
         </div>
-        <form method="get" class="p-3" [formGroup]="Formulario" >
+        <form method="get" class="p-3" [formGroup]="Formulario" (ngSubmit)="insert()" >
             <div class="mb-3 row">
                 <label class="col-sm-4 col-form-label text-end">Nombre: </label>
                 <div class="col-sm-8">

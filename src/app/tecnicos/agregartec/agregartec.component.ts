@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AgregartecComponent {
   usuarios: usuariosI[] = [];
-  nombreTec= '';
+  nombre= '';
   correo= '';
   password= '';
   Formulario:FormGroup;
@@ -25,5 +25,19 @@ export class AgregartecComponent {
   }
 
 
+  insert() {
+    const{nombre, correo, password} = this.Formulario.value
+    if (nombre!= '' && correo!= '' && password!= '' ) {
+      this.TecnicosService.insertTec(nombre, correo, password ).subscribe(respuesta =>{ 
+        console.log(respuesta)
+        if (respuesta && respuesta.success) {
+          window.location.reload();
+        } else {
+          console.log("No envio el Lab");
+        }
+      });
+      
+    }
+  }
 
 }
