@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
           if (rol === 'lab') {
             this.router.navigate(['/sidebar-user']);
           } else if (rol === 'usuario') {
-            this.router.navigate(['/sidebar']);
+            this.router.navigate(['/sidebar/principal']);
           } else if (rol === 'admin') {
             this.router.navigate(['/sidebar-user', id]);
           } else {

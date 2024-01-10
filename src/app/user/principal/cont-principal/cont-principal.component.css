@@ -1,9 +1,8 @@
 .container-principal {
-  background-image: url('../../../../assets/img/papel-pintado-procesador-microchip.jpg'); 
-  background-size: cover;
-  background-attachment: fixed; /* Esto evita que el fondo se desplace al hacer scroll */
-  padding: 188px;
-}
+    background-image: url('../../../../assets/img/fondo_laboratorios.jpg'); 
+    background-size: cover;
+    padding: 188px;
+  }
   .btn{
     display: inline-block;
     padding: 10px 20px;
