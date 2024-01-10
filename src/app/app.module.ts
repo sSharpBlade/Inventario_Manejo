@@ -28,7 +28,6 @@ import { Toast } from 'bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { LabUserComponent } from './user/lab-user/lab-user.component';
 import { TecnicosComponent } from './app/tecnicos/tecnicos.component';
-import { VertecComponent } from './tecnicos/vertec/vertec.component';
 import { AgregartecComponent } from './tecnicos/agregartec/agregartec.component';
 
 @NgModule({
@@ -39,7 +38,7 @@ import { AgregartecComponent } from './tecnicos/agregartec/agregartec.component'
     CommentsComponent,
     CommentsAdminComponent,
     AppComponent, 
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, LabUserComponent, TecnicosComponent, VertecComponent, AgregartecComponent, 
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, LabUserComponent, TecnicosComponent, AgregartecComponent, 
 
   ],
   imports: [
