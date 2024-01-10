@@ -46,30 +46,77 @@ export class EditBienesComponent implements OnInit, AfterViewInit{
 
   ngOnInit(): void {
     
-
+    this.servicioC.obtenerCategorias().subscribe(respuesta => {
+      this.categorias = respuesta;
+      console.log(respuesta);
+    });
     this.servicioC.obtenerCarreras().subscribe(respuesta => {
       this.carreras = respuesta;
 
   });
+  this.servicioC.obtenerLaboratoriosS().subscribe(respuesta => {
+    this.laboratorios = respuesta;
+    this.servicioC.obtenerTodosDispositivos().subscribe(respuesta => {
+      this.dispositivos = respuesta;
+      console.log(this.dispositivos);
+    });
+ });
   
   }
-  onCategoria(value: any) {
-    const categoriaId = value.value;
-    const categoria = this.categorias.find(c => c.id === categoriaId);
+  onCategoria(event: any) {
+    const categoriaId = event.value;
+    this.dispositivos = [];
   
-    if (categoria) {
-      this.selectedCategoria.id = categoria.id;
-      this.selectedCategoria.nombre = categoria.nombre;
-      console.log(this.selectedCategoria.id);
-      console.log(this.selectedLaboratorio.id);
+    if (categoriaId) {
+      const categoria = this.categorias.find(c => c.id === categoriaId);
   
-      // Resto del código
-      this.servicioC.obtenerDispositivos(this.selectedLaboratorio.id, this.selectedCategoria.id).subscribe(respuesta => {
-        this.dispositivos = respuesta;
-        console.log(this.dispositivos);
-      });
+      if (categoria) {
+        this.selectedCategoria.id = categoria.id;
+        this.selectedCategoria.nombre = categoria.nombre;
+  
+        if (this.selectedLaboratorio.id) {
+          this.servicioC.obtenerDispositivos(this.selectedLaboratorio.id, this.selectedCategoria.id).subscribe(respuesta => {
+            this.dispositivos = respuesta;
+            console.log("1" + this.dispositivos);
+          });
+        } else {
+          console.log("No envío mensaje");
+          console.log("es" + categoriaId);
+  
+          // Si no se ha seleccionado un laboratorio
+          if (categoriaId === "todos") {
+            // Obtén todos los dispositivos sin filtrar por categoría
+            this.servicioC.obtenerTodosDispositivos().subscribe(respuesta => {
+              this.dispositivos = respuesta;
+              console.log("3" + this.dispositivos);
+            });
+          } else {
+            // Obtén dispositivos por categoría seleccionada
+            this.servicioC.obtenerDispositivosCategoria(this.selectedCategoria.id).subscribe(respuesta => {
+              this.dispositivos = respuesta;
+              console.log("2" + this.dispositivos);
+            });
+          }
+        }
+      }
+      else{
+        if(this.selectedLaboratorio.id!=''){
+        this.servicioC.obtenerDispositivos2(this.selectedLaboratorio.id).subscribe(respuesta => {
+          this.dispositivos = respuesta;
+          console.log("3" + this.dispositivos);
+        });
+      } else{
+        this.servicioC.obtenerTodosDispositivos().subscribe(respuesta => {
+          this.dispositivos = respuesta;
+          console.log("3" + this.dispositivos);
+        });
+      }
+      }
     }
   }
+  
+  
+  
   onCarreras(value: any) {
     this.laboratorios = [];
     this.dispositivos = [];
@@ -81,13 +128,38 @@ export class EditBienesComponent implements OnInit, AfterViewInit{
   });
   
 }
-  onLaboratorios(value: any) {
-    this.categorias = [];
-    this.selectedLaboratorio.id = value.value;
-    this.servicioC.obtenerCategorias().subscribe(respuesta => {
-      this.categorias = respuesta;
-    });
+onLaboratorios(value: any) {
+  const selectedLaboratorioId = value.value;
+
+  if (selectedLaboratorioId) {
+    this.selectedLaboratorio.id = selectedLaboratorioId;
+
+    if (selectedLaboratorioId === "todos") {
+      // Caso "Todos": Obtén todos los dispositivos sin filtrar por laboratorio
+      this.servicioC.obtenerTodosDispositivos().subscribe(respuesta => {
+        this.dispositivos = respuesta;
+        console.log(this.dispositivos);
+        this.selectedLaboratorio.id = '';
+        this.categorias = [];
+        this.servicioC.obtenerCategorias().subscribe(respuesta => {
+          this.categorias = respuesta;
+          console.log(respuesta);
+        });
+      });
+    } else {
+      // Caso normal: Filtra por laboratorio seleccionado
+      this.servicioC.obtenerDispositivos2(selectedLaboratorioId).subscribe(respuesta => {
+        this.dispositivos = respuesta;
+      });
+      this.categorias = [];
+      this.servicioC.obtenerCategorias().subscribe(respuesta => {
+        this.categorias = respuesta;
+        console.log(respuesta);
+      });
+    }
   }
+}
+
   onDispositivos(value: DispositivoI) {
     this.selectedDispositivo.id = value.id;
     this.selectedDispositivo.nombre = value.nombre;
@@ -128,5 +200,36 @@ export class EditBienesComponent implements OnInit, AfterViewInit{
       this.toastr.error('Llena los campos', 'Error!');
       console.log("No envio mensaje");
     }
+  }
+
+  eliminarDispositivo(){
+    console.log("eliminarDispositivo");
+    if(this.selectedDispositivo.id!=''){
+      this.servicioC.eliminarDispositivo(this.selectedDispositivo.id).subscribe(respuesta => {
+        if (respuesta && respuesta.success) {
+          console.log(respuesta);
+          //window.location.reload();
+          this.toastr.success('Eliminado Correctamente', 'Hecho!');
+          this.selectedDispositivo.nombre = '';
+          this.dispositivos = [];
+          this.servicioC.obtenerDispositivos(this.selectedLaboratorio.id, this.selectedCategoria.id).subscribe(respuesta => {
+            this.dispositivos = respuesta;
+          });
+          
+        } else {
+          console.log("No envio mensaje in");
+          this.toastr.error('No se pudo eliminar', 'Error!');
+        }
+      });
+    }
+  }
+  obtenerNombreCategoria(idCategoria: string): string {
+    const categoria = this.categorias.find(c => c.id === idCategoria);
+    return categoria ? categoria.nombre : 'Sin categoría';
+  }
+
+  obtenerNombreLaboratorio(idLaboratorio: string): string {
+    const laboratorio = this.laboratorios.find(l => l.id === idLaboratorio);
+    return laboratorio ? laboratorio.nom_lab : 'Sin laboratorio';
   }
 }

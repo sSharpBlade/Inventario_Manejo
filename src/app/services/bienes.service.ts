@@ -63,6 +63,25 @@ obtenerLaboratorios(idCarrera: string): Observable<any> {
     return this.clienteHttp.post(this.API + "?laboratorios", datos);
 }
 
+obtenerLaboratoriosS(): Observable<LaboratorioI[]> {
+  return this.clienteHttp.post<LaboratorioI[]>(this.API + "?laboratoriosCreados",'');
+}
+
+obtenerTodosDispositivos(): Observable<DispositivoI[]> {
+  return this.clienteHttp.post<DispositivoI[]>(this.API + "?dispositivos",'');
+
+}
+
+obtenerDispositivos2(id_lab_per: string): Observable<DispositivoI[]> {
+  const datos = { id_lab_per: id_lab_per};
+  return this.clienteHttp.post<DispositivoI[]>(this.API + "?componenteD", datos);
+}
+
+obtenerDispositivosCategoria( id_cat_per: string): Observable<DispositivoI[]> {
+  const datos = { id_cat_per: id_cat_per };
+  return this.clienteHttp.post<DispositivoI[]>(this.API + "?componenteT", datos);
+}
+
 
 }
 
