@@ -1,7 +1,6 @@
 .container-principal {
-    background-image: url('../../../assets/img/fondo_actualizar.png'); 
     background-size: cover;
-    padding: 220px;
+    padding: 230px;
 }
 .btn{
     display: inline-block;

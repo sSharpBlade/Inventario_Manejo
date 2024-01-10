@@ -1,5 +1,13 @@
-<button type="button" class="btn btn-primary m-3" data-bs-toggle="modal"
-  data-bs-target="#staticBackdrop">Añadir</button>
+<div class="container-principal p-4" style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100vh;">
+  <div class="card text-center mb-4" style="width: 550px;">
+    <div class="card-body">
+      <h5 class="card-title" style="border-bottom: 1px solid #ccc; padding-bottom: 10px;">¡Envía un Comentario!</h5>
+      <p class="card-text">Aquí puedes agregar un comentario, pero no podrás ver los comentarios existentes.</p>
+      <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: #1c6ad1de; border-color: transparent; color: white; font-weight: bold; padding: 10px 20px;">
+        Añadir Comentario
+      </button>
+    </div>
+  </div>
 
 <form [formGroup]="formularioMSG" (ngSubmit)="sendMsg()">
   <div class="modal fade " id="staticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
