@@ -13,7 +13,7 @@ export class CommentsComponent implements OnInit {
 
   labId: any;
   public selectedCategoria: CategoriaI = { id: "", nombre: "" };
-  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "", nom_lab: "" };
   public categorias: CategoriaI[] = [];
   public dispositivos: DispositivoI[] = [];
   public msg: string = '';
@@ -39,10 +39,11 @@ export class CommentsComponent implements OnInit {
 
   }
 
-  onCategoria(value: any) {
-    this.selectedCategoria.id = value.value;
-    this.servicioC.obtenerDispositivos(this.labId, this.selectedCategoria.id).subscribe(respuesta => {
+  onCategoria(value: string) {
+    this.selectedCategoria.id = value;
+    this.servicioC.obtenerDispositivos(this.selectedCategoria.id).subscribe(respuesta => {
       this.dispositivos = respuesta;
+      this.selectedDispositivo.id = '';
     });
   }
 
@@ -56,12 +57,16 @@ export class CommentsComponent implements OnInit {
       this.servicioC.enviarComentario(idD, msg).subscribe(respuesta => {
         if (respuesta && respuesta.success) {
           console.log(respuesta);
-          window.location.reload();
+          this.exit();
         } else {
           console.log("No envio mensaje");
         }
       });
     }
+  }
+
+  exit() {
+    window.location.reload();
   }
 
 }

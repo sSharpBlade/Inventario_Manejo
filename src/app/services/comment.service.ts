@@ -12,8 +12,8 @@ export class CommentService {
 
   constructor(private clienteHttp: HttpClient) { }
 
-  obtenerDispositivos(idL: string, idC: string): Observable<DispositivoI[]> {
-    const datos = { idL: idL, idC: idC };
+  obtenerDispositivos(idC: string): Observable<DispositivoI[]> {
+    const datos = { idC: idC };
     return this.clienteHttp.post<DispositivoI[]>(this.API + "?componente", datos);
   }
 
@@ -26,14 +26,28 @@ export class CommentService {
     return this.clienteHttp.post(this.API + "?mensaje", datos);
   }
 
-  obtenerComentarios(dispositivo: string): Observable<ComentariosI[]> {
-    const datos = { dispositivo: dispositivo };
-    return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentarios", datos);
+  obtenerComentarios(): Observable<ComentariosI[]> {
+    return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentarios", '');
+  }
+
+  obtenerComentariosMe(tecnico: string): Observable<ComentariosI[]> {
+    const valor = { tecnico: tecnico };
+    return this.clienteHttp.post<ComentariosI[]>(this.API + "?comentariosMe", valor);
   }
 
   cambiarEstado(comentario: string): Observable<any> {
+    const valorC = { comentario: comentario };
+    return this.clienteHttp.post(this.API + "?modificar", valorC);
+  }
+
+  eliminar(comentario: string): Observable<any> {
     const valor = { comentario: comentario };
-    return this.clienteHttp.post(this.API + "?modificar", valor);
+    return this.clienteHttp.post(this.API + "?eliminarComentario", valor);
+  }
+
+  asignarTarea(comentario: string, tecnico: string): Observable<any> {
+    const datos = { comentario: comentario, tecnico: tecnico };
+    return this.clienteHttp.post(this.API + "?asignarme", datos);
   }
 
 }

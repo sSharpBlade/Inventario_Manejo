@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+  usuId?: string;
+
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.usuId = params['id'];
+    });
+  }
 
 }

@@ -10,62 +10,48 @@ import { CommentService } from '../../services/comment.service';
   styleUrl: './comments-admin.component.css'
 })
 export class CommentsAdminComponent {
-  labId: any;
+  usuId: any;
   public selectedCategoria: CategoriaI = { id: "", nombre: "" };
-  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "" };
-  public selectedComentario: ComentariosI = { id: "", comentario: "", idDispositivo: "", estado: 0 };
+  public selectedDispositivo: DispositivoI = { id: "", nombre: "", idCategoria: "", nom_lab: "" };
+  public selectedComentario: ComentariosI = { id: "", comentario: "", idDispositivo: "", estado: 0, nom_lab: '', nombre_dis: '', nom_cat: '' };
   public categorias: CategoriaI[] = [];
   public dispositivos: DispositivoI[] = [];
   public comentarios: ComentariosI[] = [];
   public msg: string = '';
   public formularioMSG: FormGroup;
 
-  constructor(private route: ActivatedRoute, private servicioC: CommentService, private router: Router, private formulario: FormBuilder) {
+  constructor(private route: ActivatedRoute, private servicioC: CommentService, private formulario: FormBuilder) {
     this.formularioMSG = this.formulario.group({
       idC: [""],
       idD: [""],
       idM: [""]
     });
+
+    this.route.params.subscribe(params => {
+      this.usuId = params['id'];
+    });
   }
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(params => {
-      this.labId = params['id'];
-    });
-
-    this.servicioC.obtenerCategorias().subscribe(respuesta => {
-      this.categorias = respuesta;
-    });
-
-  }
-
-  onCategoria(value: any) {
-    this.selectedCategoria.id = value.value;
-    this.servicioC.obtenerDispositivos(this.labId, this.selectedCategoria.id).subscribe(respuesta => {
-      this.dispositivos = respuesta;
-    });
-  }
-
-  onDispositivo(value: any) {
-    this.selectedDispositivo.id = value.value;
-  }
-
-  getComments(value: any) {
-    this.selectedDispositivo = value.value;
-    this.servicioC.obtenerComentarios(value.value).subscribe(respuesta => {
+    this.servicioC.obtenerComentarios().subscribe(respuesta => {
       if (respuesta.length > 0) {
         this.comentarios = respuesta;
       }
     });
+
   }
 
-  revisar(value: any) {
-    this.servicioC.cambiarEstado(value.value).subscribe(
-      res => {
-        window.location.reload();
-      }
-    );
+  asignarme(valor: string) {
+    this.servicioC.asignarTarea(valor, this.usuId).subscribe(res => {
+      window.location.reload();
+    });
+  }
+
+  eliminar(valor: string) {
+    this.servicioC.eliminar(valor).subscribe(res => {
+      window.location.reload();
+    });
   }
 
 }

@@ -1,9 +1,59 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<button type="button" class="btn btn-primary m-3" data-bs-toggle="modal"
+  data-bs-target="#staticBackdrop">Añadir</button>
 
-<div class="container">
+<form [formGroup]="formularioMSG" (ngSubmit)="sendMsg()">
+  <div class="modal fade " id="staticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-ms">
+      <div class="modal-content " style="background-color: #404143e5;">
+        <div class="modal-header text-center"
+          style="border-color: transparent; padding-top: 6px; padding-bottom: 0; margin-bottom: 0;">
+          <h5 class="mx-auto" style="color: white;">Agregar comentario</h5>
+
+        </div>
+        <div class="modal-header d-flex justify-content-center" style="border-color: rgb(158, 158, 158);">
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <div *ngFor="let categoria of categorias">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio{{categoria.id}}" autocomplete="off"
+                (click)="onCategoria(categoria.id)">
+              <label class="btn btn-outline-secondary" style="border-width: 0;"
+                for="btnradio{{categoria.id}}">{{categoria.nombre}}</label>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="modal-body ">
+          <div *ngIf="dispositivos.length > 0" class="justify-content-center">
+            <label for="exampleInputPassword1" class="form-label" style="color: white;">Dispositivos:</label>
+            <select formControlName="idD" class="form-select form-select-lg" (change)="onDispositivo($event.target)">
+              <option *ngFor="let disp of dispositivos" [value]="disp.id">{{disp.nombre}} - {{disp.nom_lab}}</option>
+            </select>
+          </div>
+          <div class="row " *ngIf="selectedDispositivo.id !== ''">
+
+            <div class="mb-3 text-left">
+              <label for="exampleInputPassword1" class="form-label" style="color: white;">Comentario:</label>
+              <textarea class="form-control" formControlName="msg" cols="30" rows="10"
+                style="border-color: rgb(138, 138, 138); margin-bottom: 3px;" autocomplete="off"
+                placeholder="Describe brevemente el estado del dispositivo"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer d-flex justify-content-center" style="border-color: transparent;">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="exit()">Cerrar</button>
+            <button type="submit" class="btn btn-primary"
+              style="background-color: #1c6ad1de; border-color: transparent;">Enviar comentario</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+<!-- <div *ngIf="" class="container">
   <h2>Estoy en el lab: {{labId}}</h2>
   <div class="col-12">
     <form [formGroup]="formularioMSG" (ngSubmit)="sendMsg()">
@@ -26,13 +76,13 @@
         <br>
         <textarea class="form-control" formControlName="msg" cols="30" rows="10"
           placeholder="Describe brevemente el estado del dispositivo"></textarea>
-      </div>
+            </div>
 
-      <div>
-        <br>
-        <button type="submit" class="btn btn-dark">Enviar</button>
-      </div>
-    </form>
+            <div>
+              <br>
+              <button type="submit" class="btn btn-dark">Enviar</button>
+            </div>
+        </form>
 
-  </div>
-</div>
+      </div>
+    </div> -->
