@@ -1,13 +1,11 @@
-  <div class="card text-left h-100" style="border-color: transparent;" >
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+ <div class="card text-left h-100" style="border-color: transparent;" >
       <div class="card-header d-flex justify-content-between align-items-center" style="border-color: transparent; border-width: 0;">
           <span> 
               Editar dispositivos  
           </span>
           <div class="d-flex">
-            <select #carreraSelect  class="form-select short-input "  (change)="onCarreras($event.target)"  >
-              <option value="" disabled selected>Selecciona una carrera</option>
-              <option *ngFor="let carrera of carreras" [value]="carrera.id_car">{{carrera.nom_car}}</option>
-              </select>
+            
               <div *ngIf="laboratorios.length > 0">
               <select  class="form-select short-input short-inpu2 "(change)="onLaboratorios($event.target)">
                 <option value="" disabled selected>Laboratorio</option>
@@ -18,7 +16,7 @@
               <div *ngIf="categorias.length > 0">
                 <select class="form-select short-input short-inpu3" id="dispositivos" (change)="onCategoria($event.target)">
                   <option value="" disabled selected>Categoria</option>
-                  <option value="todos" >Todos</option>
+                  <option value="todos">Todos</option>
                 <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</option>
               </select>
             </div>
@@ -30,6 +28,7 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Laboratorio</th>
                 <th scope="col">Dispositivos</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Marca</th>
@@ -40,11 +39,16 @@
             <tbody *ngIf="dispositivos.length>0">
               <tr *ngFor="let dispositivo of dispositivos; let i = index">
                 <th scope="row">{{i+1}}</th>
+                <td>{{obtenerNombreLaboratorio(dispositivo.id_lab_per)}}</td>
                 <td>{{obtenerNombreCategoria(dispositivo.id_cat_per)}}</td>
                 <td>{{dispositivo.nombre}}</td>
                 <td>{{dispositivo.marca}}</td>
                 <td>{{dispositivo.anio}}</td>
-                <td ><button [value]="dispositivo.id" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.selectedCategoria.nombre=obtenerNombreCategoria(dispositivo.id_cat_per)" (click)="onDispositivos(dispositivo)">Editar</button> <button [value]="dispositivo.id" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onDispositivos(dispositivo)">Eliminar</button></td>
+                <td ><button [value]="dispositivo.id" type="button" class="btn btn-primary btn-small" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.selectedCategoria.nombre=obtenerNombreCategoria(dispositivo.id_cat_per)" (click)="onDispositivos(dispositivo)"><span class="material-symbols-outlined">
+                  edit
+                  </span></button> <button [value]="dispositivo.id" type="button" class="btn btn-danger btn-small" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onDispositivos(dispositivo)"><span class="material-symbols-outlined">
+                    delete_forever
+                    </span></button></td>
               </tr>
             </tbody>
           </table>

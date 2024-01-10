@@ -227,4 +227,9 @@ onLaboratorios(value: any) {
     const categoria = this.categorias.find(c => c.id === idCategoria);
     return categoria ? categoria.nombre : 'Sin categoría';
   }
+
+  obtenerNombreLaboratorio(idLaboratorio: string): string {
+    const laboratorio = this.laboratorios.find(l => l.id === idLaboratorio);
+    return laboratorio ? laboratorio.nom_lab : 'Sin laboratorio';
+  }
 }

@@ -92,3 +92,14 @@
     background-color: #404143e5;    
     color: white;
 }
+
+/* Ajustar tamaño de los botones */
+.btn-small {
+    font-size: 12px; /* Tamaño de la fuente del botón */
+    padding: 4px 8px; /* Espaciado interno del botón */
+  }
+  
+  /* Ajustar tamaño de los iconos */
+  .btn i {
+    font-size: 16px; /* Tamaño del icono */
+  }

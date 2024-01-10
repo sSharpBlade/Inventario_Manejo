@@ -3,15 +3,7 @@
         <span> 
             Agregar dispositivos  
         </span>
-        <div class="d-flex">
-            
-          <select class="form-select short-input  " id="carreras" (change)="onCarreras($event.target)"  >
-            <option value="" disabled selected>Selecciona una carrera</option>
-
-            <option *ngFor="let carrera of carreras" [value]="carrera.id_car">{{carrera.nom_car}}</option>
-            </select>
-            
-        </div>
+        
     </div>
     <div class="card-body">
       <router-outlet></router-outlet>
