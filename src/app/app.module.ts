@@ -28,6 +28,9 @@ import { Toast } from 'bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { LabUserComponent } from './user/lab-user/lab-user.component';
 import { TareasComponent } from './pages/tareas/tareas.component';
+import { AgregartecComponent } from './tecnicos/agregartec/agregartec.component';
+import { TecnicosComponent } from './tecnicos/tecnicos.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,13 +40,16 @@ import { TareasComponent } from './pages/tareas/tareas.component';
     CommentsComponent,
     CommentsAdminComponent,
     AppComponent, 
-    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, LabUserComponent, TareasComponent, 
+
+    LaboratorioComponent, AddLabComponent, DeleteLabComponent, SidebarComponent, CarrerasComponent, CrearCarrerasComponent, SidebarUserComponent, ContPrincipalComponent, MostrarLabComponent,EliminarCarreraComponent, BienesComponent, AddBienesComponent, DeleteBienesComponent, EditBienesComponent, LabUserComponent, TareasComponent, TecnicosComponent, AgregartecComponent, 
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

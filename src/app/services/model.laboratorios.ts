@@ -6,8 +6,6 @@ export interface carrerasI{
     est_car: string;
 }
     
-
-
 export interface laboratorioI{
     id:string;
     nom_lab:string;
@@ -15,4 +13,12 @@ export interface laboratorioI{
     cap_mes_lab:string;
     id_car_lab:string;
     est_lab:string;
+}
+
+export interface userI {
+    id: string;
+    nombre: string;
+    correo: string;
+    password: string;
+    rol: string;
 }

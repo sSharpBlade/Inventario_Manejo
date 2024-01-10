@@ -20,6 +20,8 @@ import { CrearCarrerasComponent } from './carreras/crear-carreras/crear-carreras
 import { EliminarCarreraComponent } from './carreras/eliminar-carrera/eliminar-carrera.component';
 import { LabUserComponent } from './user/lab-user/lab-user.component';
 import { TareasComponent } from './pages/tareas/tareas.component';
+import { TecnicosComponent } from './tecnicos/tecnicos.component';
+import { AgregartecComponent } from './tecnicos/agregartec/agregartec.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -33,6 +35,10 @@ const routes: Routes = [
       { path: 'nav-car', component: CarrerasComponent },
       { path: 'crear-car', component: CrearCarrerasComponent },
       { path: 'eliminar-car', component: EliminarCarreraComponent },
+      { path: 'nav-tec/:id', component: TecnicosComponent },
+      { path: 'add-tec/:id', component: AgregartecComponent},
+      
+
       { path: 'commentAdmin/:id', component: CommentsAdminComponent },
       { path: 'tareas/:id', component: TareasComponent },
       {
