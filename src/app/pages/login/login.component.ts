@@ -34,6 +34,9 @@ export class LoginComponent implements OnInit {
     this.loginService.agregarUsuario(this.formularioRegistro.value).subscribe();
     window.location.reload();
   }
+  public redireccionar(id: number): void {
+    this.router.navigate(['/sidebar/principal', { id }]);
+  }
 
   public iniciarSesion(): void {
     const { correo, password } = this.formularioLogin.value;
