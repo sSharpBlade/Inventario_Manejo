@@ -36,10 +36,10 @@ const routes: Routes = [
       { path: 'commentAdmin/:id', component: CommentsAdminComponent },
       { path: 'tareas/:id', component: TareasComponent },
       {
-        path: 'nav-bienes', component: BienesComponent, children: [
-          { path: 'add-bienes', component: AddBienesComponent },
-          { path: 'edit-bienes', component: EditBienesComponent },
-          { path: 'delete-bienes', component: DeleteBienesComponent },
+        path: 'nav-bienes/:id', component: BienesComponent, children: [
+          { path: 'add-bienes/:id', component: AddBienesComponent },
+          { path: 'edit-bienes/:id', component: EditBienesComponent },
+          { path: 'delete-bienes/:id', component: DeleteBienesComponent },
           { path: '', component: AddBienesComponent }
         ]
       },

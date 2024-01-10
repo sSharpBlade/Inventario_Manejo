@@ -44,7 +44,7 @@
                 <td>{{dispositivo.nombre}}</td>
                 <td>{{dispositivo.marca}}</td>
                 <td>{{dispositivo.anio}}</td>
-                <td ><button [value]="dispositivo.id" type="button" class="btn btn-primary btn-small" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.selectedCategoria.nombre=obtenerNombreCategoria(dispositivo.id_cat_per)" (click)="onDispositivos(dispositivo)"><span class="material-symbols-outlined">
+                <td ><button [value]="dispositivo.id" type="button" class="btn btn-primary btn-small" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="this.selectedCategoria.nombre=obtenerNombreCategoria(dispositivo.id_cat_per)"  (click)="this.selectedCategoria.id=dispositivo.id_cat_per" (click)="onDispositivos(dispositivo)"><span class="material-symbols-outlined">
                   edit
                   </span></button> <button [value]="dispositivo.id" type="button" class="btn btn-danger btn-small" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="onDispositivos(dispositivo)"><span class="material-symbols-outlined">
                     delete_forever

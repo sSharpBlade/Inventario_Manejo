@@ -184,9 +184,8 @@ onLaboratorios(value: any) {
           this.toastr.success('Actualizado Correctamente', 'Hecho!');
           this.selectedDispositivo.nombre = nomDis;
           this.dispositivos = [];
-          this.servicioC.obtenerDispositivos(this.selectedLaboratorio.id, this.selectedCategoria.id).subscribe(respuesta => {
-            this.dispositivos = respuesta;
-          });
+          //aqui
+          this.obtenerDispositivos();
           
         } else {
           console.log("No envio mensaje in");
@@ -204,6 +203,7 @@ onLaboratorios(value: any) {
 
   eliminarDispositivo(){
     console.log("eliminarDispositivo");
+    console.log("e"+this.selectedDispositivo.id);
     if(this.selectedDispositivo.id!=''){
       this.servicioC.eliminarDispositivo(this.selectedDispositivo.id).subscribe(respuesta => {
         if (respuesta && respuesta.success) {
@@ -212,9 +212,7 @@ onLaboratorios(value: any) {
           this.toastr.success('Eliminado Correctamente', 'Hecho!');
           this.selectedDispositivo.nombre = '';
           this.dispositivos = [];
-          this.servicioC.obtenerDispositivos(this.selectedLaboratorio.id, this.selectedCategoria.id).subscribe(respuesta => {
-            this.dispositivos = respuesta;
-          });
+          this.obtenerDispositivos();
           
         } else {
           console.log("No envio mensaje in");
@@ -232,4 +230,27 @@ onLaboratorios(value: any) {
     const laboratorio = this.laboratorios.find(l => l.id === idLaboratorio);
     return laboratorio ? laboratorio.nom_lab : 'Sin laboratorio';
   }
+
+  obtenerDispositivos() {
+    if (this.selectedLaboratorio.id && this.selectedCategoria.id) {
+      this.servicioC.obtenerDispositivos(this.selectedLaboratorio.id, this.selectedCategoria.id).subscribe(respuesta => {
+        this.dispositivos = respuesta;
+        console.log(this.dispositivos);
+      });
+    } else if (this.selectedLaboratorio.id) {this.servicioC.obtenerDispositivos2(this.selectedLaboratorio.id).subscribe(respuesta => {
+      this.dispositivos = respuesta;
+    });
+    this.categorias = [];
+    this.servicioC.obtenerCategorias().subscribe(respuesta => {
+      this.categorias = respuesta;
+      console.log(respuesta);
+    });
+    } else {
+      this.servicioC.obtenerTodosDispositivos().subscribe(respuesta => {
+        this.dispositivos = respuesta;
+        console.log(this.dispositivos);
+      });
+    }
+  }
+  
 }
