@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoboratoriosServiceService } from '../../services/loboratorios.service';
 import { laboratorioI } from '../../services/model.laboratorios';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-lab',
@@ -10,8 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DeleteLabComponent {
   public labo: laboratorioI[] = [];
+  usuId: any;
 
-  constructor(private loboratoriosService: LoboratoriosServiceService, private router: Router) { }
+  constructor(private loboratoriosService: LoboratoriosServiceService, private router:Router , private route:ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.usuId = params['id'];
+    });
+
+
+   }
 
   ngOnInit(): void {
     this.loboratoriosService.obtenerLaboratorios().subscribe(

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <div class="container-principal">
-  <a href="/sidebar-user/add-lab/" class="btn-A">Añadir Laboratorios</a>
+  <a href="/sidebar-user/{{usuId}}/add-lab/{{usuId}}/" class="btn-A">Añadir Laboratorios</a>
 
   <ng-container *ngFor="let lab of labo">
     <div class="card text-center">
@@ -13,7 +13,7 @@
         <p class="card-text">Ubicación: {{ lab.ubi_lab }}</p>
         <p class="card-text">Capacidad de mesas disponibles:{{ lab.cap_mes_lab }} </p>
         <button type="button" class="btn btn-success" [value]="lab.id" (click)="eliminar($event.target)">Eliminar</button>
-        <button type="button" class="btn btn-info" style="margin-left: 10%;" [value]="lab.id" (click)="callComment($event.target)">Comentarios</button>
+        
       </div>
       <div class="card-footer text-body-secondary">
         GrupoDinmita

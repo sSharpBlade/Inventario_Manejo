@@ -29,9 +29,9 @@ const routes: Routes = [
 
   {
     path: 'sidebar-user/:id', component: SidebarComponent, children: [
-      { path: 'nav-lab', component: LaboratorioComponent },
-      { path: 'add-lab', component: AddLabComponent },
-      { path: 'delete-lab', component: DeleteLabComponent },
+      { path: 'nav-lab/:id', component: LaboratorioComponent },
+      { path: 'add-lab/:id', component: AddLabComponent },
+      { path: 'delete-lab/:id', component: DeleteLabComponent },
       { path: 'nav-car', component: CarrerasComponent },
       { path: 'crear-car', component: CrearCarrerasComponent },
       { path: 'eliminar-car', component: EliminarCarreraComponent },
