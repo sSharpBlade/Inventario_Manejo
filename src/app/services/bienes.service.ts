@@ -72,6 +72,17 @@ obtenerTodosDispositivos(): Observable<DispositivoI[]> {
 
 }
 
+obtenerDispositivos2(id_lab_per: string): Observable<DispositivoI[]> {
+  const datos = { id_lab_per: id_lab_per};
+  return this.clienteHttp.post<DispositivoI[]>(this.API + "?componenteD", datos);
+}
+
+obtenerDispositivosCategoria( id_cat_per: string): Observable<DispositivoI[]> {
+  const datos = { id_cat_per: id_cat_per };
+  return this.clienteHttp.post<DispositivoI[]>(this.API + "?componenteT", datos);
+}
+
+
 }
 
 export { DispositivoI, CategoriaI, CarrerasI };
