@@ -1,22 +1,24 @@
-<link rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <div class="container-principal">
-  <div class="card text-center" *ngFor="let lab of labo">
-    <div class="card-header">
-      Administrador
+  <a href="/sidebar-user/add-lab/" class="btn-A">Añadir Laboratorios</a>
+
+  <ng-container *ngFor="let lab of labo">
+    <div class="card text-center">
+      <div class="card-header">
+        ADMINISTRADOR
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ lab.nom_lab }}</h5>
+        <p class="card-text">Ubicación: {{ lab.ubi_lab }}</p>
+        <p class="card-text">Capacidad de mesas disponibles:{{ lab.cap_mes_lab }} </p>
+        <button type="button" class="btn btn-success" [value]="lab.id" (click)="eliminar($event.target)">Eliminar</button>
+        <button type="button" class="btn btn-info" style="margin-left: 10%;" [value]="lab.id" (click)="callComment($event.target)">Comentarios</button>
+      </div>
+      <div class="card-footer text-body-secondary">
+        GrupoDinmita
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">{{ lab.nom_lab }}</h5>
-      <p class="card-text">Identificador: {{ lab.id }}</p>
-      <p class="card-text">Se encuentra en: {{ lab.ubi_lab }}</p>
-      <p class="card-text">{{ lab.cap_mes_lab }} Mesas Disponibles</p>
-      <button type="button" class="btn btn-success" [value]="lab.id" (click)="eliminar($event.target)">Eliminar</button>
-      <button type="button" class="btn btn-info" style="margin-left: 10%;" [value]="lab.id"
-        (click)="callComment($event.target)">Comentarios</button>
-    </div>
-    <div class="card-footer text-body-secondary">
-      GrupoDinmita
-    </div>
-  </div>
+    <div style="margin-bottom: 10px;"></div> 
+  </ng-container>
 </div>
