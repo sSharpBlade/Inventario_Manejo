@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { carrerasI, laboratorioI } from './model.laboratorios';
+import { carrerasI, laboratorioI , userI} from './model.laboratorios';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,8 @@ export class LoboratoriosServiceService {
     const datos = { idCar: idCar };
     return this.http.post<laboratorioI[]>(this.API + "?laboratoriosC",datos);}
 
+    obtenerUsuarioLab(): Observable<userI[]> {
+      return this.http.post<userI[]>(this.API + "?obtenerUsuariosRolLab",'');
+    }
 
 }

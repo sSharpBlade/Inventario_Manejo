@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TecnicosService } from '../../services/tecnicos.service';
-import { usuariosI } from '../../services/model.tecnicos';
+import { userI } from '../../services/model.laboratorios';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrl: './agregartec.component.css'
 })
 export class AgregartecComponent {
-  usuarios: usuariosI[] = [];
+  usuarios: userI[] = [];
   nombre= '';
   correo= '';
   password= '';
